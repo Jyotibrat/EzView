@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown Previewer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Markdown Previewer</h1>
+    <div class="header-actions">
+      <select id="theme-selector">
+        <option value="light">🌞 Light</option>
+        <option value="dark">🌙 Dark</option>
+        <option value="solarized">🌅 Solarized</option>
+      </select>
+      <button id="download-html">⬇️ Download as HTML</button>
+    </div>
+  </header>
+  <div class="container">
+    <div class="input-section">
+      <div class="input-header">
+        <h2>Markdown Input</h2>
+        <select id="font-size-selector">
+          <option value="16">Small</option>
+          <option value="18" selected>Medium</option>
+          <option value="20">Large</option>
+        </select>
+      </div>
+      <textarea id="markdown-input" placeholder="Type your Markdown here..."></textarea>
+      <button id="show-preview" class="primary-button">Show Preview</button>
+    </div>
+    <div class="preview-section">
+      <h2>Preview</h2>
+      <div id="preview"></div>
+    </div>
+  </div>
+  <footer>
+    <p>Markdown Previewer &copy; 2024 | Made with ❤️</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
