@@ -13,12 +13,13 @@ body {
 header {
   background: linear-gradient(90deg, #4CAF50, #3B7A47);
   color: white;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   font-size: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 50px;
 }
 
 header .header-actions {
