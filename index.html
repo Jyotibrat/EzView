@@ -38,9 +38,13 @@
     </div>
   </div>
   <footer>
-    <p>Markdown Previewer &copy; 2024 | Made with ❤️</p>
+    <p>Markdown Previewer &copy; <span id="year"></span> | Made with ❤️</p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    const year = new Date().getFullYear();
+    document.getElementById('year').innerHTML=year;
+  </script>
 </body>
 </html>
