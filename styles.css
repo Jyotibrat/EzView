@@ -24,7 +24,86 @@ header {
 
 header .header-actions {
   display: flex;
-  gap: 10px;
+  gap: 30px;
+  text-align: center;
+}
+/* Styling the container */
+.header-actions {
+  display: flex;
+  gap: 20px; /* Space between dropdown and button */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styling the dropdown */
+.header-actions select {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-actions select:hover {
+  border-color: #45a049;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+.header-actions select:focus {
+  outline: none;
+  border-color: #45a049;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+}
+
+/* Styling the button */
+.header-actions button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-actions button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.header-actions button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for dark and solarized themes */
+.theme-dark .header-actions select,
+.theme-dark .header-actions button {
+  background-color: #333;
+  color: #fff;
+}
+
+.theme-dark .header-actions select:hover,
+.theme-dark .header-actions button:hover {
+  background-color: #555;
+}
+
+.theme-solarized .header-actions select,
+.theme-solarized .header-actions button {
+  background-color: #93a1a1;
+  color: #fdf6e3;
+}
+
+.theme-solarized .header-actions select:hover,
+.theme-solarized .header-actions button:hover {
+  background-color: #839496;
 }
 
 .container {
