@@ -106,6 +106,70 @@ header .header-actions {
   background-color: #839496;
 }
 
+/* Header Actions - Sunset Theme */
+.theme-sunset .header-actions select,
+.theme-sunset .header-actions button {
+  background-color: #e6a366; 
+  color: #ffcc99;           
+}
+
+.theme-sunset .header-actions select:hover,
+.theme-sunset .header-actions button:hover {
+  background-color: #d98c4d; 
+}
+
+/* Header Actions - Ocean Theme */
+.theme-ocean .header-actions select,
+.theme-ocean .header-actions button {
+  background-color: #6cb8d6; 
+  color: #87ceeb;           
+}
+
+.theme-ocean .header-actions select:hover,
+.theme-ocean .header-actions button:hover {
+  background-color: #5aa0c2; 
+}
+
+/* Header Actions - Blossom Theme */
+.theme-blossom .header-actions select,
+.theme-blossom .header-actions button {
+  background-color: #f4b6b6; 
+  color: #ffe4e1;          
+}
+
+.theme-blossom .header-actions select:hover,
+.theme-blossom .header-actions button:hover {
+  background-color: #e99d9d; 
+}
+
+/* Ember Theme - Header Actions */
+.theme-ember .header-actions select,
+.theme-ember .header-actions button {
+  background-color: #cc6666; 
+  color: #ffcccc;          
+}
+
+.theme-ember .header-actions select:hover,
+.theme-ember .header-actions button:hover {
+  background-color: #b84d4d; 
+}
+
+/* Header Actions - Magic Theme */
+.theme-magic .header-actions select,
+.theme-magic .header-actions button {
+  background-color: #b080b0; 
+  color: #dda0dd;        
+}
+
+.theme-magic .header-actions select:hover,
+.theme-magic .header-actions button:hover {
+  background-color: #a066a0; 
+}
+
+
+
+
+
 .container {
   display: flex;
   flex: 1;
@@ -179,3 +243,58 @@ footer {
   background-color: #EEE8D5;
   color: #657b83;
 }
+
+.theme-sunset body {
+  background-color: #ffcc99; 
+  color: #663300;           
+}
+
+.theme-sunset textarea, .theme-sunset #preview {
+  background-color: #ffb380; 
+  color: #663300;           
+}
+
+
+.theme-ocean body {
+  background-color: #87ceeb;
+  color: #002147;           
+}
+
+.theme-ocean textarea, .theme-ocean #preview {
+  background-color: #5bb5d9; 
+  color: #002147;           
+}
+
+.theme-blossom body {
+  background-color: #ffe4e1; 
+  color: #4b2c2c;          
+}
+
+.theme-blossom textarea, .theme-blossom #preview {
+  background-color: #fcdcdc; 
+  color: #4b2c2c;           
+}
+
+.theme-ember body {
+  background-color: #ffcccc; 
+  color: #990000;         
+}
+
+.theme-ember textarea,
+.theme-ember #preview {
+  background-color: #ff9999;
+  color: #990000;        
+}
+
+
+.theme-magic body {
+  background-color: #dda0dd; 
+  color: #4b0082;           
+}
+
+.theme-magic textarea, .theme-magic #preview {
+  background-color: #c080c0; 
+  color: #4b0082;          
+}
+
+
