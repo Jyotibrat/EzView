@@ -61,8 +61,8 @@ header .header-actions {
 
 /* Styling the button */
 .header-actions button {
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 10px 40px;
+  font-size: 16px;
   font-weight: bold;
   background-color: #4CAF50;
   color: white;
@@ -166,9 +166,139 @@ header .header-actions {
   background-color: #a066a0; 
 }
 
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
+.dropbtn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    min-width: 140px;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    right: 0;
+    padding-top: 5px;
+    top: calc(100% - 3px);
+}
 
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: transparent;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content a:hover {
+    background-color: #1e74ff;
+    color: white;
+}
+
+.dropbtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropbtn:active {
+    transform: translateY(0);
+}
+
+/* Theme-specific dropdown styles */
+.theme-dark .dropdown-content {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+}
+
+.theme-dark .dropdown-content a {
+    color: #fff;
+}
+
+.theme-dark .dropdown-content a:hover {
+    background-color: #1e74ff;
+    color: white;
+}
+
+.theme-solarized .dropbtn {
+    background-color: #93a1a1;
+    color: #fdf6e3;
+}
+
+.theme-solarized .dropdown-content a:hover,
+.theme-sunset .dropdown-content a:hover,
+.theme-ocean .dropdown-content a:hover,
+.theme-blossom .dropdown-content a:hover,
+.theme-ember .dropdown-content a:hover,
+.theme-magic .dropdown-content a:hover {
+    background-color: #1e74ff;
+    color: white;
+}
+
+.theme-sunset .dropbtn {
+    background-color: #e6a366;
+    color: #ffcc99;
+}
+
+.theme-ocean .dropbtn {
+    background-color: #6cb8d6;
+    color: #87ceeb;
+}
+
+.theme-blossom .dropbtn {
+    background-color: #f4b6b6;
+    color: #ffe4e1;
+}
+
+.theme-ember .dropbtn {
+    background-color: #cc6666;
+    color: #ffcccc;
+}
+
+.theme-magic .dropbtn {
+    background-color: #b080b0;
+    color: #dda0dd;
+}
 
 .container {
   display: flex;

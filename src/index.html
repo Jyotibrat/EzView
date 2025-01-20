@@ -21,7 +21,16 @@
         <option value="ember">🔥 Ember</option>
         <option value="magic">🌃 Magic</option>
       </select>
-      <button id="download-html">⬇️ Download as HTML</button>
+      <div class="dropdown">
+        <button id="download-button" class="dropbtn">⬇️ Download</button>
+        <div class="dropdown-content">
+          <a href="#" id="download-html">📄 Download as HTML</a>
+          <a href="#" id="download-pdf">📑 Download as PDF</a>
+          <a href="#" id="download-md">📜 Download as md</a>
+          <a href="#" id="download-png">🖼️ Download as PNG</a>
+          <a href="#" id="download-jpg">🖼️ Download as JPG</a>
+        </div>
+      </div>
     </div>
   </header>
   <div class="container">
@@ -46,10 +55,11 @@
     <p>Markdown Previewer &copy; <span id="year"></span> | Made with ❤️</p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="script.js"></script>
   <script>
-    const year = new Date().getFullYear();
-    document.getElementById('year').innerHTML=year;
+    document.getElementById('year').innerHTML = new Date().getFullYear();
   </script>
 </body>
 </html>

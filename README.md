@@ -8,6 +8,7 @@
 - **Live Markdown Editing**: Type your Markdown and preview the formatted content by clicking the "Show Preview" button.
 - **Customizable Themes**: Switch between different themes to style your preview.
 - **Download as HTML**: Save your Markdown preview as an HTML file.
+- **Export to PDF**: Save your Markdown preview as a PDF file.
 - **Beginner-Friendly Codebase**: Aimed at fostering contributions from beginner-level developers.
 
 ---
