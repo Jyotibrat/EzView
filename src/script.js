@@ -27,6 +27,20 @@ fontSizeSelector.addEventListener('change', (e) => {
 // Show Preview on Button Click
 showPreviewButton.addEventListener('click', renderMarkdown);
 
+// Spell check functionality
+const spellCheckToggle = document.getElementById('spell-check-toggle');
+
+spellCheckToggle.addEventListener('click', () => {
+    const currentState = markdownInput.spellcheck;
+    markdownInput.spellcheck = !currentState;
+    spellCheckToggle.classList.toggle('active');
+    
+    // Force refresh of spell checking
+    const value = markdownInput.value;
+    markdownInput.value = '';
+    markdownInput.value = value;
+});
+
 // Updated Download functionality
 document.getElementById('download-html').addEventListener('click', (e) => {
   e.preventDefault();
