@@ -354,4 +354,43 @@ body, h1, h2, p, button, select, textarea, div {
       padding: 8px;
     }
   }
-  
+  /* Toggle Switch Styles */
+.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.toggle-label input {
+  display: none; /* Hide checkbox */
+}
+
+.toggle-label .slider {
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 15px;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.toggle-label .slider::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.toggle-label input:checked + .slider {
+  background-color: #4caf50;
+}
+
+.toggle-label input:checked + .slider::before {
+  transform: translateX(20px);
+}

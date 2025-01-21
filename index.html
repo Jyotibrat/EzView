@@ -21,35 +21,46 @@
         <option value="ember">🔥 Ember</option>
         <option value="magic">🌃 Magic</option>
       </select>
-      <button id="download-html">⬇️ Download as HTML</button>
+      <button id="download-html" aria-label="Download HTML">⬇️ Download as HTML</button>
     </div>
   </header>
+
   <div class="container">
     <div class="input-section">
       <div class="input-header">
         <h2>Markdown Input</h2>
-        <select id="font-size-selector">
-          <option value="16">Small</option>
-          <option value="18" selected>Medium</option>
-          <option value="20">Large</option>
-        </select>
+        <div class="controls">
+          <select id="font-size-selector" aria-label="Font Size Selector">
+            <option value="16">Small</option>
+            <option value="18" selected>Medium</option>
+            <option value="20">Large</option>
+          </select>
+          <label class="toggle-label">
+            <input type="checkbox" id="real-time-toggle">
+            <span class="slider"></span> Real-Time Preview
+          </label>
+        </div>
       </div>
-      <textarea id="markdown-input" placeholder="Type your Markdown here..."></textarea>
-      <button id="show-preview" class="primary-button">Show Preview</button>
+      <textarea id="markdown-input" placeholder="Type your Markdown here..." aria-label="Markdown Input"></textarea>
+      <button id="show-preview" class="primary-button" aria-label="Show Preview">Show Preview</button>
     </div>
     <div class="preview-section">
       <h2>Preview</h2>
-      <div id="preview"></div>
+      <div id="preview" aria-live="polite"></div>
     </div>
   </div>
+
   <footer>
     <p>Markdown Previewer &copy; <span id="year"></span> | Made with ❤️</p>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
   <script>
-    const year = new Date().getFullYear();
-    document.getElementById('year').innerHTML=year;
+    // Set current year in footer
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
