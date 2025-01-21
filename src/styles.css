@@ -581,20 +581,3 @@ footer {
     left: auto;
   }
 }
-
-/* ...existing code... */
-
-.tool-button {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: transparent;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.tool-button.active {
-  background: #e0e0e0;
-}
-
-/* ...existing code... */
