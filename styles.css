@@ -1,89 +1,73 @@
-/* styles.css */
+/* Reset default styles for consistency */
+body, h1, h2, p, button, select, textarea, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif; /* Clean and modern font */
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #fdfdfd;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  header {
+    background-color: #0066cc;
+    color: white;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 15px;
+  }
+  
+  #theme-selector, #download-html {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  #theme-selector {
+    appearance: none;
+    background: white;
+    color: #0066cc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #theme-selector:hover {
+    background-color: #f0f8ff; 
+    color: #004a99; 
+    transform: scale(1.05); 
+  }
 
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  background-color: #f7f9fc;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
+  #download-html:hover {
+    background-color: #003366; 
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  }
 
-header {
-  background: linear-gradient(90deg, #4CAF50, #3B7A47);
-  color: white;
-  padding: 15px;
-  text-align: center;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 50px;
-}
-
-header .header-actions {
-  display: flex;
-  gap: 30px;
-  text-align: center;
-}
-/* Styling the container */
-.header-actions {
-  display: flex;
-  gap: 20px; /* Space between dropdown and button */
-  align-items: center;
-  justify-content: center;
-}
-
-/* Styling the dropdown */
-.header-actions select {
-  padding: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  border: 2px solid #4CAF50;
-  border-radius: 5px;
-  background-color: white;
-  color: #333;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.header-actions select:hover {
-  border-color: #45a049;
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
-}
-
-.header-actions select:focus {
-  outline: none;
-  border-color: #45a049;
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
-}
-
-/* Styling the button */
-.header-actions button {
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.header-actions button:hover {
-  background-color: #45a049;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.header-actions button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Styling for dark and solarized themes */
+  /* Styling for dark and solarized themes */
 .theme-dark .header-actions select,
 .theme-dark .header-actions button {
   background-color: #333;
@@ -166,135 +150,208 @@ header .header-actions {
   background-color: #a066a0; 
 }
 
-
-
-
-
-.container {
-  display: flex;
-  flex: 1;
-  gap: 20px;
-  padding: 20px;
-  flex-wrap: wrap;
-}
-
-.input-section, .preview-section {
-  flex: 1;
-  min-width: 300px;
-  max-width: 50%;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-textarea, #preview {
-  flex: 1;
-  resize: none;
-  font-size: 16px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  overflow-y: auto;
-}
-
-.primary-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.primary-button:hover {
-  background-color: #45a049;
-}
-
-footer {
-  text-align: center;
-  background-color: #333;
-  color: white;
-  padding: 10px 0;
-  font-size: 0.9rem;
-}
-
 .theme-dark body {
-  background-color: #121212;
-  color: #ddd;
-}
-
-.theme-dark textarea, .theme-dark #preview {
-  background-color: #1e1e1e;
-  color: #ddd;
-  border: 1px solid #444;
-}
-
-.theme-solarized body {
-  background-color: #FDF6E3;
-  color: #657b83;
-}
-
-.theme-solarized textarea, .theme-solarized #preview {
-  background-color: #EEE8D5;
-  color: #657b83;
-}
-
-.theme-sunset body {
-  background-color: #ffcc99; 
-  color: #663300;           
-}
-
-.theme-sunset textarea, .theme-sunset #preview {
-  background-color: #ffb380; 
-  color: #663300;           
-}
-
-
-.theme-ocean body {
-  background-color: #87ceeb;
-  color: #002147;           
-}
-
-.theme-ocean textarea, .theme-ocean #preview {
-  background-color: #5bb5d9; 
-  color: #002147;           
-}
-
-.theme-blossom body {
-  background-color: #ffe4e1; 
-  color: #4b2c2c;          
-}
-
-.theme-blossom textarea, .theme-blossom #preview {
-  background-color: #fcdcdc; 
-  color: #4b2c2c;           
-}
-
-.theme-ember body {
-  background-color: #ffcccc; 
-  color: #990000;         
-}
-
-.theme-ember textarea,
-.theme-ember #preview {
-  background-color: #ff9999;
-  color: #990000;        
-}
-
-
-.theme-magic body {
-  background-color: #dda0dd; 
-  color: #4b0082;           
-}
-
-.theme-magic textarea, .theme-magic #preview {
-  background-color: #c080c0; 
-  color: #4b0082;          
-}
-
-
+    background-color: #121212;
+    color: #ddd;
+  }
+  
+  .theme-dark textarea, .theme-dark #preview {
+    background-color: #1e1e1e;
+    color: #ddd;
+    border: 1px solid #444;
+  }
+  
+  .theme-solarized body {
+    background-color: #FDF6E3;
+    color: #657b83;
+  }
+  
+  .theme-solarized textarea, .theme-solarized #preview {
+    background-color: #EEE8D5;
+    color: #657b83;
+  }
+  
+  .theme-sunset body {
+    background-color: #ffcc99; 
+    color: #663300;           
+  }
+  
+  .theme-sunset textarea, .theme-sunset #preview {
+    background-color: #ffb380; 
+    color: #663300;           
+  }
+  
+  
+  .theme-ocean body {
+    background-color: #87ceeb;
+    color: #002147;           
+  }
+  
+  .theme-ocean textarea, .theme-ocean #preview {
+    background-color: #5bb5d9; 
+    color: #002147;           
+  }
+  
+  .theme-blossom body {
+    background-color: #ffe4e1; 
+    color: #4b2c2c;          
+  }
+  
+  .theme-blossom textarea, .theme-blossom #preview {
+    background-color: #fcdcdc; 
+    color: #4b2c2c;           
+  }
+  
+  .theme-ember body {
+    background-color: #ffcccc; 
+    color: #990000;         
+  }
+  
+  .theme-ember textarea,
+  .theme-ember #preview {
+    background-color: #ff9999;
+    color: #990000;        
+  }
+  
+  
+  .theme-magic body {
+    background-color: #dda0dd; 
+    color: #4b0082;           
+  }
+  
+  .theme-magic textarea, .theme-magic #preview {
+    background-color: #c080c0; 
+    color: #4b0082;          
+  }
+  
+  
+  
+  #download-html {
+    background-color: #004a99;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .container {
+    flex: 1;
+    padding: 20px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  #font-size-selector {
+    appearance: none; 
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23666' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    color: #333;
+    cursor: pointer;
+    width: 150px; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Add hover effect */
+  #font-size-selector:hover {
+    border-color: #007bff;
+  }
+  
+  /* Add focus effect */
+  #font-size-selector:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  .input-section, .preview-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 48%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input-section:focus-within, .preview-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  textarea, #preview {
+    flex: 1;
+    resize: none;
+    font-family: 'Roboto Mono', monospace; 
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-y: auto;
+  }
+  
+  .primary-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primary-button:hover {
+    background-color: #004a99;
+  }
+  
+  footer {
+    background-color: #0066cc;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    margin-top: auto;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 20px 5%;
+    }
+  
+    .input-section, .preview-section {
+      max-width: 100%;
+    }
+  
+    header h1 {
+      font-size: 22px;
+    }
+  
+    #theme-selector, #download-html {
+      font-size: 13px;
+      padding: 8px;
+    }
+  }
+  
