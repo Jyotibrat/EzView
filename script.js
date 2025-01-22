@@ -7,6 +7,7 @@ const themeSelector = document.getElementById('theme-selector');
 const fontSizeSelector = document.getElementById('font-size-selector');
 const downloadButton = document.getElementById('download-html');
 const realTimeToggle = document.getElementById('real-time-toggle');
+const spellCheckToggle = document.getElementById('spell-check-toggle');
 
 // Utility: Debounce function for performance optimization (real-time preview)
 function debounce(func, delay = 300) {
@@ -73,6 +74,18 @@ function attachEventListeners() {
   fontSizeSelector.addEventListener('change', (e) => adjustFontSize(e.target.value));
   downloadButton.addEventListener('click', downloadPreview);
   realTimeToggle.addEventListener('change', (e) => togglePreviewMode(e.target.checked));
+  
+  // Spell check toggle
+  spellCheckToggle.addEventListener('click', () => {
+    const currentState = markdownInput.spellcheck;
+    markdownInput.spellcheck = !currentState;
+    spellCheckToggle.classList.toggle('active');
+    
+    // Force refresh of spell checking
+    const value = markdownInput.value;
+    markdownInput.value = '';
+    markdownInput.value = value;
+  });
 }
 
 const debouncedRenderMarkdown = debounce(renderMarkdown, 200);

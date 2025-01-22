@@ -394,3 +394,34 @@ body, h1, h2, p, button, select, textarea, div {
 .toggle-label input:checked + .slider::before {
   transform: translateX(20px);
 }
+
+/* Tool Button Styles */
+.tool-button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  margin-right: 10px;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease;
+  color: black;
+}
+
+.tool-button.active {
+  background: #0066cc;
+  color: white;
+}
+
+/* Add these to each theme section */
+.theme-dark .tool-button {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+.theme-solarized .tool-button {
+  background-color: #93a1a1;
+  color: #fdf6e3;
+  border-color: #839496;
+}
