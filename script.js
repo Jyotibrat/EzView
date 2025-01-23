@@ -27,7 +27,12 @@ function renderMarkdown() {
 
 // Theme Switcher
 themeSelector.addEventListener('change', (e) => {
-  document.body.className = `theme-${e.target.value}`;
+  if(e.target.value == "dark"){
+    document.body.className = "dark";
+  }
+  else{
+    document.body.className = `theme-${e.target.value}`;
+  }
 });
 
 function applyTheme(theme) {

@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>Markdown Previewer</h1>
+    <h1 class="mrkh1">Markdown Previewer</h1>
     <div class="header-actions">
       <button id="spell-check-toggle" class="tool-button" title="Toggle Spell Check">
         📝 ABC
@@ -52,13 +52,12 @@
           </label>
           <button id="clear-markdown" class="secondary-button" aria-label="Clear Markdown">Clear</button>
         </div>
-        
       </div>
       <textarea id="markdown-input" placeholder="Type your Markdown here..." aria-label="Markdown Input"></textarea>
       <button id="show-preview" class="primary-button" aria-label="Show Preview">Show Preview</button>
     </div>
     <div class="preview-section">
-      <h2>Preview</h2>
+      <h2 style="color: var(--header-h2);">Preview</h2>
       <div id="preview" aria-live="polite"></div>
     </div>
   </div>

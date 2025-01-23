@@ -5,12 +5,34 @@ body, h1, h2, p, button, select, textarea, div {
     box-sizing: border-box;
   }
   
+  /* light mode styles */
+  :root{
+    --primary-color: white;
+    --nav-color: #0066cc;
+    --textarea-markdown:  #f9f9f9;
+    --header-h1: white;
+    --header-h2: black;
+    --input-sec-bg: white;
+    --shadow-color: #333;
+    --btn-color: #0066cc;
+  }
+
+  .dark{
+    --primary-color: black;
+    --nav-color: #23415f;
+    --textarea-markdown: black;
+    --header-h1: white;
+    --header-h2: white;
+    --input-sec-bg: #142e48;
+    --btn-color: rgb(78, 151, 151);
+  }
+
   body {
     font-family: 'Inter', sans-serif; /* Clean and modern font */
     font-size: 16px;
     line-height: 1.6;
-    background-color: #fdfdfd;
-    color: #333;
+    background-color: var(--primary-color);
+    /* color: #333; */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,8 +40,8 @@ body, h1, h2, p, button, select, textarea, div {
   }
   
   header {
-    background-color: #0066cc;
-    color: white;
+    background-color: var(--nav-color);
+    color: var(--header-h1);
     padding: 20px 10%;
     display: flex;
     justify-content: space-between;
@@ -51,7 +73,7 @@ body, h1, h2, p, button, select, textarea, div {
   #theme-selector {
     appearance: none;
     background: white;
-    color: #0066cc;
+    color: var(--nav-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
@@ -149,17 +171,6 @@ body, h1, h2, p, button, select, textarea, div {
 .theme-magic .header-actions button:hover {
   background-color: #a066a0; 
 }
-
-.theme-dark body {
-    background-color: #121212;
-    color: #ddd;
-  }
-  
-  .theme-dark textarea, .theme-dark #preview {
-    background-color: #1e1e1e;
-    color: #ddd;
-    border: 1px solid #444;
-  }
   
   .theme-solarized body {
     background-color: #FDF6E3;
@@ -271,10 +282,10 @@ body, h1, h2, p, button, select, textarea, div {
     flex: 1;
     min-width: 300px;
     max-width: 48%;
-    background: white;
+    background: var(--input-sec-bg);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px var(--shadow-color);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -307,15 +318,15 @@ body, h1, h2, p, button, select, textarea, div {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--textarea-markdown);
+    color: var(--header-h2);
     overflow-y: auto;
   }
   
   .primary-button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #0066cc;
+    background-color: var(--btn-color);
     color: white;
     border: none;
     border-radius: 5px;
@@ -330,7 +341,7 @@ body, h1, h2, p, button, select, textarea, div {
   }
   
   footer {
-    background-color: #0066cc;
+    background-color: var(--nav-color);
     color: white;
     text-align: center;
     padding: 15px;
@@ -351,8 +362,12 @@ body, h1, h2, p, button, select, textarea, div {
       max-width: 100%;
     }
   
-    header h1 {
+    .header h1 {
+      color: var(--header-h1) !important;
       font-size: 22px;
+    }
+    .mrkh1{
+      color: var(--header-h1) !important;
     }
   
     #theme-selector, #download-html {
