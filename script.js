@@ -169,3 +169,11 @@ function initializeApp() {
 }
 
 document.addEventListener('DOMContentLoaded', initializeApp);
+
+// Get reference to the Clear button
+const clearButton = document.getElementById('clear-markdown');
+
+clearButton.addEventListener('click', () => {
+  markdownInput.value = ''; 
+  renderMarkdown(); 
+});

@@ -37,8 +37,9 @@
 
   <div class="container">
     <div class="input-section">
-      <div class="input-header">
+      <div class="input-header">        
         <h2>Markdown Input</h2>
+        <hr>
         <div class="controls">
           <select id="font-size-selector" aria-label="Font Size Selector">
             <option value="16">Small</option>
@@ -49,7 +50,9 @@
             <input type="checkbox" id="real-time-toggle">
             <span class="slider"></span> Real-Time Preview
           </label>
+          <button id="clear-markdown" class="secondary-button" aria-label="Clear Markdown">Clear</button>
         </div>
+        
       </div>
       <textarea id="markdown-input" placeholder="Type your Markdown here..." aria-label="Markdown Input"></textarea>
       <button id="show-preview" class="primary-button" aria-label="Show Preview">Show Preview</button>

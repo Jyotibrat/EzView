@@ -281,17 +281,23 @@ body, h1, h2, p, button, select, textarea, div {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .input-section:focus-within, .preview-section:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  }
-  
   .input-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+    flex-direction: column;
+    gap: 10px; /* Add spacing between lines if needed */
   }
+  
+  .input-header h2 {
+    margin: 0;
+  }
+  
+  .controls {
+    display: flex;
+    gap: 10px; /* Adjust spacing between controls */
+    align-items: center; /* Align controls vertically */
+    flex-wrap: wrap; /* Allow wrapping if the controls are too wide */
+  }
+  
   
   textarea, #preview {
     flex: 1;
@@ -652,3 +658,53 @@ body, h1, h2, p, button, select, textarea, div {
     width: 220px; /* Slightly smaller on mobile */
   }
 }
+
+.secondary-button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.secondary-button:hover {
+  background-color: #d32f2f;
+}
+hr {
+  border: none;
+  border-top: 1px solid #ccc; /* Adjust color */
+  margin: 10px 0; /* Adjust spacing */
+}
+
+/* Hover Effect on Input and Preview Section */
+.input-section:focus-within, .preview-section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Input Header Layout Adjustments */
+.input-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adds spacing between header elements */
+}
+
+.input-header h2 {
+  margin: 0; /* Remove margin for the header */
+}
+
+/* Controls Layout Adjustments */
+.controls {
+  display: flex;
+  justify-content: space-between; /* Distribute the controls evenly */
+  align-items: center; /* Align controls vertically */
+  margin-bottom: 15px; /* Adjust space below the controls */
+  gap: 10px; /* Space between controls */
+  flex-wrap: wrap; /* Allow controls to wrap when space is limited */
+}
+
