@@ -734,4 +734,63 @@ hr {
   gap: 10px; /* Space between controls */
   flex-wrap: wrap; /* Allow controls to wrap when space is limited */
 }
+.theme-dark textarea, .theme-dark #preview {
+  background-color: #1e1e1e;
+  color: #ddd;
+  border: 1px solid #444;
+}
 
+.theme-solarized body {
+  background-color: #FDF6E3;
+  color: #657b83;
+}
+
+.theme-solarized textarea, .theme-solarized #preview {
+  background-color: #EEE8D5;
+  color: #657b83;
+}
+
+.theme-sunset body {
+  background-color: #ffcc99; 
+  color: #663300;           
+}
+
+.theme-sunset textarea, .theme-sunset #preview {
+  background-color: #ffb380; 
+  color: #663300;           
+}
+
+
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.social-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #ecf0f1;
+  font-size: 1.5em;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #1abc9c;
+  background-color: #ecf0f1;
+  border-color: #1abc9c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
