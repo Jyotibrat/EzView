@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        section {
+            margin: 1.5rem 0;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Markdown Previewer</h1>
+        <div class="header-actions">
+          <nav>
+            <a href="about.html">About</a>
+          </nav>
+          <select id="theme-selector">
+            <option value="light">🌞 Light</option>
+            <option value="dark">🌙 Dark</option>
+            <option value="solarized">🌅 Solarized</option>
+            <option value="sunset">🌇 Sunset</option>
+            <option value="ocean">🌊 Ocean</option>
+            <option value="blossom">🌸 Blossom</option>
+            <option value="ember">🔥 Ember</option>
+            <option value="magic">🌃 Magic</option>
+          </select>
+          <button id="download-html">⬇️ Download as HTML</button>
+        </div>
+      </header>
+      <!-- about section -->
+      <main>
+        <h1 style="color: #333;">About MarkView</h1>
+
+        <section>
+            <h2>Overview</h2>
+            <p>MarkView is a simple yet powerful Markdown Previewer designed to help users write and preview Markdown content in real-time. It provides a seamless writing experience by combining live editing with customizable themes and export options. This project is a part of the <strong>Android Club Winter of Code 2024</strong> initiative and is open to contributions from developers of all levels.</p>
+        </section>
+
+        <section>
+            <h2>How to use ?</h2>
+            <p>MarkView is easy to use. Simply type your Markdown content in the input box on the left and see the formatted output in the preview section on the right. You can switch between different themes, download the preview as an HTML file, and adjust the font size to suit your preferences. MarkView is designed to be beginner-friendly and is ideal for anyone looking to write and preview Markdown content effortlessly.</p>
+        </section>
+
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li><strong>Live Markdown Editing:</strong> Type your Markdown and preview the formatted output instantly.</li>
+                <li><strong>Customizable Themes:</strong> Switch between themes to suit your preferences.</li>
+                <li><strong>Download as HTML:</strong> Save your Markdown preview as a downloadable HTML file.</li>
+                <li><strong>Beginner-Friendly Codebase:</strong> Ideal for beginner developers looking to contribute.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technologies Used</h2>
+            <p>MarkView is built using the following technologies:</p>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li><a href="https://github.com/markedjs/marked" target="_blank">Marked JS Library</a></li>
+                <li>GitHub Pages for deployment</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Contribution</h2>
+            <p>MarkView is an open-source project aimed at fostering contributions from developers. Whether you are a beginner or an experienced developer, we welcome you to contribute and help improve this project. Visit our <a href="https://github.com/Jyotibrat/MarkView" target="_blank">GitHub repository</a> to get started.</p>
+        </section>
+
+    </main>
+
+      <footer>
+        <p>Markdown Previewer &copy; <span id="year"></span> | Made with ❤️</p>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      <script src="script.js"></script>
+      <script>
+        const year = new Date().getFullYear();
+        document.getElementById('year').innerHTML=year;
+      </script>
+</body>
+</html>

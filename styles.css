@@ -38,6 +38,16 @@ body, h1, h2, p, button, select, textarea, div {
     min-height: 100vh;
     overflow-x: hidden;
   }
+
+  nav a{
+    color: white;
+    text-decoration: none;
+    margin: 30px;
+    font-size: 17px;
+    margin-top: 5% !important;
+    padding: 20px 10%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
   
   header {
     background-color: var(--nav-color);
@@ -56,6 +66,8 @@ body, h1, h2, p, button, select, textarea, div {
   
   .header-actions {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
   }
   
