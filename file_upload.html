@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload file</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        section {
+            margin: 1.5rem 0;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html"><h1>Markdown Previewer</h1></a>
+        <div class="header-actions">
+          <nav>
+            <a href="about.html">About</a>
+          </nav>
+          <select id="theme-selector">
+            <option value="light">🌞 Light</option>
+            <option value="dark">🌙 Dark</option>
+            <option value="solarized">🌅 Solarized</option>
+            <option value="sunset">🌇 Sunset</option>
+            <option value="ocean">🌊 Ocean</option>
+            <option value="blossom">🌸 Blossom</option>
+            <option value="ember">🔥 Ember</option>
+            <option value="magic">🌃 Magic</option>
+          </select>
+        </div>
+      </header>
+
+    <label for="file">Upload Markdown File:</label>
+    <input type="file" id="file" name="file" accept=".md" required>
+    
+    
+    
+
+</body>
+</html>
