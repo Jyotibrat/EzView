@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload file</title>
+    <title>Markdown Previewer</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -45,7 +45,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><h1>Markdown Previewer</h1></a>
+        <h1><a href="index.html" style="color: white; text-decoration: none;">Markdown Previewer</a></h1>
         <div class="header-actions">
           <nav>
             <a href="about.html">About</a>
@@ -63,11 +63,46 @@
         </div>
       </header>
 
-    <label for="file">Upload Markdown File:</label>
-    <input type="file" id="file" name="file" accept=".md" required>
-    
-    
-    
+    <main>
+        <section>
+            <label for="file">Upload Markdown File:</label>
+            <input type="file" id="file" name="file" accept=".md" required>
+        </section>
 
+        <section id="preview">
+            <h2>Preview</h2>
+            <div id="content"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Markdown Previewer &copy; <span id="year"></span> | Made with ❤️</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        // Set current year in footer
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+
+        // Add event listener for file upload
+        const fileInput = document.getElementById('file');
+        const contentDiv = document.getElementById('content');
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const markdown = reader.result;
+                    contentDiv.innerHTML = marked.parse(markdown);
+                };
+                reader.readAsText(file);
+            }
+        });
+    </script>
 </body>
 </html>

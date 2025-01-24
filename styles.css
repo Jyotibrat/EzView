@@ -1,506 +1,87 @@
 /* Reset default styles for consistency */
 body, h1, h2, p, button, select, textarea, div {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* light mode styles */
-  :root{
-    --primary-color: white;
-    --nav-color: #0066cc;
-    --textarea-markdown:  #f9f9f9;
-    --header-h1: white;
-    --header-h2: black;
-    --input-sec-bg: white;
-    --shadow-color: #333;
-    --btn-color: #0066cc;
-  }
-
-  .dark{
-    --primary-color: black;
-    --nav-color: #23415f;
-    --textarea-markdown: black;
-    --header-h1: white;
-    --header-h2: white;
-    --input-sec-bg: #142e48;
-    --btn-color: rgb(78, 151, 151);
-  }
-
-  body {
-    font-family: 'Inter', sans-serif; /* Clean and modern font */
-    font-size: 16px;
-    line-height: 1.6;
-    background-color: var(--primary-color);
-    /* color: #333; */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  nav a{
-    color: white;
-    text-decoration: none;
-    margin: 30px;
-    font-size: 17px;
-    margin-top: 5% !important;
-    padding: 20px 10%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  header {
-    background-color: var(--nav-color);
-    color: var(--header-h1);
-    padding: 20px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  header h1 {
-    font-size: 28px;
-    font-weight: 700;
-  }
-  
-  .header-actions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  #theme-selector, #download-html {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  #theme-selector {
-    appearance: none;
-    background: white;
-    color: var(--nav-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  #theme-selector:hover {
-    background-color: #f0f8ff; 
-    color: #004a99; 
-    transform: scale(1.05); 
-  }
-
-  #download-html:hover {
-    background-color: #003366; 
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-  }
-
-  /* Styling for dark and solarized themes */
-.theme-dark .header-actions select,
-.theme-dark .header-actions button {
-  background-color: #333;
-  color: #fff;
-}
-
-.theme-dark .header-actions select:hover,
-.theme-dark .header-actions button:hover {
-  background-color: #555;
-}
-
-.theme-solarized .header-actions select,
-.theme-solarized .header-actions button {
-  background-color: #93a1a1;
-  color: #fdf6e3;
-}
-
-.theme-solarized .header-actions select:hover,
-.theme-solarized .header-actions button:hover {
-  background-color: #839496;
-}
-
-/* Header Actions - Sunset Theme */
-.theme-sunset .header-actions select,
-.theme-sunset .header-actions button {
-  background-color: #e6a366; 
-  color: #ffcc99;           
-}
-
-.theme-sunset .header-actions select:hover,
-.theme-sunset .header-actions button:hover {
-  background-color: #d98c4d; 
-}
-
-/* Header Actions - Ocean Theme */
-.theme-ocean .header-actions select,
-.theme-ocean .header-actions button {
-  background-color: #6cb8d6; 
-  color: #87ceeb;           
-}
-
-.theme-ocean .header-actions select:hover,
-.theme-ocean .header-actions button:hover {
-  background-color: #5aa0c2; 
-}
-
-/* Header Actions - Blossom Theme */
-.theme-blossom .header-actions select,
-.theme-blossom .header-actions button {
-  background-color: #f4b6b6; 
-  color: #ffe4e1;          
-}
-
-.theme-blossom .header-actions select:hover,
-.theme-blossom .header-actions button:hover {
-  background-color: #e99d9d; 
-}
-
-/* Ember Theme - Header Actions */
-.theme-ember .header-actions select,
-.theme-ember .header-actions button {
-  background-color: #cc6666; 
-  color: #ffcccc;          
-}
-
-.theme-ember .header-actions select:hover,
-.theme-ember .header-actions button:hover {
-  background-color: #b84d4d; 
-}
-
-/* Header Actions - Magic Theme */
-.theme-magic .header-actions select,
-.theme-magic .header-actions button {
-  background-color: #b080b0; 
-  color: #dda0dd;        
-}
-
-.theme-magic .header-actions select:hover,
-.theme-magic .header-actions button:hover {
-  background-color: #a066a0; 
-}
-  
-  .theme-solarized body {
-    background-color: #FDF6E3;
-    color: #657b83;
-  }
-  
-  .theme-solarized textarea, .theme-solarized #preview {
-    background-color: #EEE8D5;
-    color: #657b83;
-  }
-  
-  .theme-sunset body {
-    background-color: #ffcc99; 
-    color: #663300;           
-  }
-  
-  .theme-sunset textarea, .theme-sunset #preview {
-    background-color: #ffb380; 
-    color: #663300;           
-  }
-  
-  
-  .theme-ocean body {
-    background-color: #87ceeb;
-    color: #002147;           
-  }
-  
-  .theme-ocean textarea, .theme-ocean #preview {
-    background-color: #5bb5d9; 
-    color: #002147;           
-  }
-  
-  .theme-blossom body {
-    background-color: #ffe4e1; 
-    color: #4b2c2c;          
-  }
-  
-  .theme-blossom textarea, .theme-blossom #preview {
-    background-color: #fcdcdc; 
-    color: #4b2c2c;           
-  }
-  
-  .theme-ember body {
-    background-color: #ffcccc; 
-    color: #990000;         
-  }
-  
-  .theme-ember textarea,
-  .theme-ember #preview {
-    background-color: #ff9999;
-    color: #990000;        
-  }
-  
-  
-  .theme-magic body {
-    background-color: #dda0dd; 
-    color: #4b0082;           
-  }
-  
-  .theme-magic textarea, .theme-magic #preview {
-    background-color: #c080c0; 
-    color: #4b0082;          
-  }
-  
-  
-  
-  #download-html {
-    background-color: transparent;
-    color: #666;
-    font-weight: 500;
-  }
-  
-  .container {
-    flex: 1;
-    padding: 20px 10%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  #font-size-selector {
-    appearance: none; 
-    padding: 8px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: white;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23666' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
-    color: #333;
-    cursor: pointer;
-    width: 150px; 
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Add hover effect */
-  #font-size-selector:hover {
-    border-color: #007bff;
-  }
-  
-  /* Add focus effect */
-  #font-size-selector:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
-  }
-  .input-section, .preview-section {
-    flex: 1;
-    min-width: 300px;
-    max-width: 48%;
-    background: var(--input-sec-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px var(--shadow-color);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .input-header {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Add spacing between lines if needed */
-  }
-  
-  .input-header h2 {
-    margin: 0;
-  }
-  
-  .controls {
-    display: flex;
-    gap: 10px; /* Adjust spacing between controls */
-    align-items: center; /* Align controls vertically */
-    flex-wrap: wrap; /* Allow wrapping if the controls are too wide */
-  }
-  
-  
-  textarea, #preview {
-    flex: 1;
-    resize: none;
-    font-family: 'Roboto Mono', monospace; 
-    font-size: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: var(--textarea-markdown);
-    color: var(--header-h2);
-    overflow-y: auto;
-  }
-  
-  .primary-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: var(--btn-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    transition: background-color 0.3s ease;
-  }
-  
-  .primary-button:hover {
-    background-color: #004a99;
-  }
-  
-  footer {
-    background-color: var(--nav-color);
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    margin-top: auto;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      padding: 20px 5%;
-    }
-  
-    .input-section, .preview-section {
-      max-width: 100%;
-    }
-  
-    .header h1 {
-      color: var(--header-h1) !important;
-      font-size: 22px;
-    }
-    .mrkh1{
-      color: var(--header-h1) !important;
-    }
-  
-    #theme-selector, #download-html {
-      font-size: 13px;
-      padding: 8px;
-    }
-  }
-  /* Toggle Switch Styles */
-.toggle-label {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 1rem;
-  cursor: pointer;
-}
-
-.toggle-label input {
-  display: none; /* Hide checkbox */
-}
-
-.toggle-label .slider {
-  width: 40px;
-  height: 20px;
-  background-color: #ccc;
-  border-radius: 15px;
-  position: relative;
-  transition: background-color 0.3s;
-}
-
-.toggle-label .slider::before {
-  content: "";
-  width: 16px;
-  height: 16px;
-  background-color: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transition: transform 0.3s;
-}
-
-.toggle-label input:checked + .slider {
-  background-color: #4caf50;
-}
-
-.toggle-label input:checked + .slider::before {
-  transform: translateX(20px);
-}
-
-/* Tool Button Styles */
-.tool-button {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: white;
-  cursor: pointer;
-  margin-right: 10px;
-  font-family: 'Inter', sans-serif;
-  transition: background-color 0.3s ease;
-  color: black;
-}
-
-.tool-button.active {
-  background: #0066cc;
-  color: white;
-}
-
-/* Add these to each theme section */
-.theme-dark .tool-button {
-  background-color: #333;
-  color: #fff;
-  border-color: #555;
-}
-
-.theme-solarized .tool-button {
-  background-color: #93a1a1;
-  color: #fdf6e3;
-  border-color: #839496;
-}
-
-/* Remove old download-html specific styles */
-#download-html {
-  background-color: transparent;
-  color: #666;
-  font-weight: 500;
-}
-
-.download-content a,
-#download-html {
-  color: #666;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  transition: all 0.2s ease;
-  position: relative;
-  white-space: nowrap;
-  font-weight: 500;
-  width: 100%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-align: left;
 }
 
-.download-content a:hover,
-#download-html:hover {
-  background-color: #f8f9fa;
-  color: #0066cc;
-  padding-left: 23px;
-  font-weight: 600;
+/* light mode styles */
+:root{
+  --primary-color: white;
+  --nav-color: #0066cc;
+  --textarea-markdown:  #f9f9f9;
+  --header-h1: white;
+  --header-h2: black;
+  --input-sec-bg: white;
+  --shadow-color: #333;
+  --btn-color: #0066cc;
 }
 
-/* Updated Download Dropdown Styles */
-.download-dropdown {
-  position: relative;
-  display: inline-block;
+.dark{
+  --primary-color: black;
+  --nav-color: #23415f;
+  --textarea-markdown: black;
+  --header-h1: white;
+  --header-h2: white;
+  --input-sec-bg: #142e48;
+  --btn-color: rgb(78, 151, 151);
 }
 
-#download-btn {
+body {
+  font-family: 'Inter', sans-serif; /* Clean and modern font */
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--primary-color);
+  /* color: #333; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 5px;
+  font-size: 17px;
+  margin-top: 5% !important;
+  padding: 15px 25px;
+  border: 1px solid #f2f2f2; /* Added border width */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.304); /* Slightly lighter shadow */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Even more subtle shadow on hover */
+}
+
+
+
+header {
+  background-color: var(--nav-color);
+  color: var(--header-h1);
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+#theme-selector, #download-html {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -508,236 +89,109 @@ body, h1, h2, p, button, select, textarea, div {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #004a99;
-  color: white;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#download-btn::after {
-  content: '▼';
-  font-size: 10px;
-  margin-left: 5px;
+#theme-selector {
+  appearance: none;
+  background: white;
+  color: var(--nav-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#download-btn:hover {
-  background-color: #003366;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#theme-selector:hover {
+  background-color: #f0f8ff; 
+  color: #004a99; 
+  transform: scale(1.05); 
 }
 
-/* Updated Download Link Styles */
-.download-content {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  top: calc(100% + 5px);
-  background-color: #ffffff;
-  width: 240px; /* Fixed width instead of min-width */
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  padding: 8px 0;
-  transition: all 0.2s ease-in-out;
-  transform: translateY(-10px);
-  z-index: 1000;
-  overflow: hidden; /* Prevent content from spilling out */
+#download-html:hover {
+  background-color: #003366; 
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
-.download-dropdown:hover .download-content,
-.download-content:hover {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
+/* Styling for dark and solarized themes */
+.theme-dark .header-actions select,
+.theme-dark .header-actions button {
+background-color: #333;
+color: #fff;
 }
 
-/* Updated Download Link Styles */
-.download-content a {
-  color: #666;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  transition: all 0.2s ease;
-  position: relative;
-  white-space: nowrap;
-  font-weight: 500;
-  width: 100%;
-  box-sizing: border-box;
+.theme-dark .header-actions select:hover,
+.theme-dark .header-actions button:hover {
+background-color: #555;
 }
 
-.download-content a:hover {
-  background-color: #f8f9fa;
-  color: #0066cc;
-  padding-left: 23px;
-  font-weight: 600;
+.theme-solarized .header-actions select,
+.theme-solarized .header-actions button {
+background-color: #93a1a1;
+color: #fdf6e3;
 }
 
-/* Ensure hover effect stays within bounds */
-.download-content a::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 3px;
-  height: 0;
-  background-color: #0066cc;
-  transition: height 0.2s ease;
+.theme-solarized .header-actions select:hover,
+.theme-solarized .header-actions button:hover {
+background-color: #839496;
 }
 
-.download-content a:hover::before {
-  height: 100%;
+/* Header Actions - Sunset Theme */
+.theme-sunset .header-actions select,
+.theme-sunset .header-actions button {
+background-color: #e6a366; 
+color: #ffcc99;           
 }
 
-/* Theme-specific download link styles */
-.theme-dark .download-content a {
-  color: #e0e0e0;
+.theme-sunset .header-actions select:hover,
+.theme-sunset .header-actions button:hover {
+background-color: #d98c4d; 
 }
 
-.theme-dark .download-content a:hover {
-  background-color: #3d3d3d;
-  color: #ffffff;
+/* Header Actions - Ocean Theme */
+.theme-ocean .header-actions select,
+.theme-ocean .header-actions button {
+background-color: #6cb8d6; 
+color: #87ceeb;           
 }
 
-.theme-dark .download-content a::before {
-  background-color: #ffffff;
+.theme-ocean .header-actions select:hover,
+.theme-ocean .header-actions button:hover {
+background-color: #5aa0c2; 
 }
 
-.theme-sunset .download-content a {
-  color: #663300;
+/* Header Actions - Blossom Theme */
+.theme-blossom .header-actions select,
+.theme-blossom .header-actions button {
+background-color: #f4b6b6; 
+color: #ffe4e1;          
 }
 
-.theme-sunset .download-content a:hover {
-  background-color: #ffb380;
-  color: #663300;
+.theme-blossom .header-actions select:hover,
+.theme-blossom .header-actions button:hover {
+background-color: #e99d9d; 
 }
 
-.theme-sunset .download-content a::before {
-  background-color: #663300;
+/* Ember Theme - Header Actions */
+.theme-ember .header-actions select,
+.theme-ember .header-actions button {
+background-color: #cc6666; 
+color: #ffcccc;          
 }
 
-.theme-ocean .download-content a {
-  color: #002147;
+.theme-ember .header-actions select:hover,
+.theme-ember .header-actions button:hover {
+background-color: #b84d4d; 
 }
 
-.theme-ocean .download-content a:hover {
-  background-color: #5bb5d9;
-  color: #002147;
+/* Header Actions - Magic Theme */
+.theme-magic .header-actions select,
+.theme-magic .header-actions button {
+background-color: #b080b0; 
+color: #dda0dd;        
 }
 
-.theme-ocean .download-content a::before {
-  background-color: #002147;
-}
-
-.theme-blossom .download-content a {
-  color: #4b2c2c;
-}
-
-.theme-blossom .download-content a:hover {
-  background-color: #fcdcdc;
-  color: #4b2c2c;
-}
-
-.theme-blossom .download-content a::before {
-  background-color: #4b2c2c;
-}
-
-.theme-ember .download-content a {
-  color: #990000;
-}
-
-.theme-ember .download-content a:hover {
-  background-color: #ff9999;
-  color: #990000;
-}
-
-.theme-ember .download-content a::before {
-  background-color: #990000;
-}
-
-.theme-magic .download-content a {
-  color: #4b0082;
-}
-
-.theme-magic .download-content a:hover {
-  background-color: #c080c0;
-  color: #4b0082;
-}
-
-.theme-magic .download-content a::before {
-  background-color: #4b0082;
-}
-
-/* Add dropdown separator */
-.download-content a:not(:last-child) {
-  border-bottom: 1px solid #eee;
-}
-
-.theme-dark .download-content a:not(:last-child) {
-  border-bottom: 1px solid #404040;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .download-content {
-    width: 220px; /* Slightly smaller on mobile */
-  }
-}
-
-.secondary-button {
-  margin-left: 10px;
-  padding: 8px 16px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  transition: background-color 0.3s ease;
-}
-
-.secondary-button:hover {
-  background-color: #d32f2f;
-}
-hr {
-  border: none;
-  border-top: 1px solid #ccc; /* Adjust color */
-  margin: 10px 0; /* Adjust spacing */
-}
-
-/* Hover Effect on Input and Preview Section */
-.input-section:focus-within, .preview-section:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Input Header Layout Adjustments */
-.input-header {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Adds spacing between header elements */
-}
-
-.input-header h2 {
-  margin: 0; /* Remove margin for the header */
-}
-
-/* Controls Layout Adjustments */
-.controls {
-  display: flex;
-  justify-content: space-between; /* Distribute the controls evenly */
-  align-items: center; /* Align controls vertically */
-  margin-bottom: 15px; /* Adjust space below the controls */
-  gap: 10px; /* Space between controls */
-  flex-wrap: wrap; /* Allow controls to wrap when space is limited */
-}
-.theme-dark textarea, .theme-dark #preview {
-  background-color: #1e1e1e;
-  color: #ddd;
-  border: 1px solid #444;
+.theme-magic .header-actions select:hover,
+.theme-magic .header-actions button:hover {
+background-color: #a066a0; 
 }
 
 .theme-solarized body {
@@ -761,112 +215,644 @@ hr {
 }
 
 
-
-.footer-content {
-  max-width: 600px;
-  margin: 0 auto;
+.theme-ocean body {
+  background-color: #87ceeb;
+  color: #002147;           
 }
 
-.social-links {
-  margin-top: 10px;
+.theme-ocean textarea, .theme-ocean #preview {
+  background-color: #5bb5d9; 
+  color: #002147;           
+}
+
+.theme-blossom body {
+  background-color: #ffe4e1; 
+  color: #4b2c2c;          
+}
+
+.theme-blossom textarea, .theme-blossom #preview {
+  background-color: #fcdcdc; 
+  color: #4b2c2c;           
+}
+
+.theme-ember body {
+  background-color: #ffcccc; 
+  color: #990000;         
+}
+
+.theme-ember textarea,
+.theme-ember #preview {
+  background-color: #ff9999;
+  color: #990000;        
+}
+
+
+.theme-magic body {
+  background-color: #dda0dd; 
+  color: #4b0082;           
+}
+
+.theme-magic textarea, .theme-magic #preview {
+  background-color: #c080c0; 
+  color: #4b0082;          
+}
+
+
+
+#download-html {
+  background-color: transparent;
+  color: #666;
+  font-weight: 500;
+}
+
+.container {
+  flex: 1;
+  padding: 20px 10%;
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
-
-.social-links a {
-  color: #ecf0f1;
-  font-size: 1.5em;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #1abc9c;
-  background-color: #ecf0f1;
-  border-color: #1abc9c;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
-}
-/* Styling for textarea */
-#markdown-input {
-  width: 100%;
-  padding: 10px;
+#font-size-selector {
+  appearance: none; 
+  padding: 8px 12px;
   font-size: 16px;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  transition: all 0.3s ease;
+  background-color: white;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23666' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  color: #333;
+  cursor: pointer;
+  width: 150px; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect for textarea */
-#markdown-input:hover {
-  border-color: #007bff;  /* Change border color on hover */
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);  /* Add a glowing effect */
+/* Add hover effect */
+#font-size-selector:hover {
+  border-color: #007bff;
 }
 
-/* Styling for button */
-#submit-button {
+/* Add focus effect */
+#font-size-selector:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+.input-section, .preview-section {
+  flex: 1;
+  min-width: 300px;
+  max-width: 48%;
+  background: var(--input-sec-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between lines if needed */
+}
+
+.input-header h2 {
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 10px; /* Adjust spacing between controls */
+  align-items: center; /* Align controls vertically */
+  flex-wrap: wrap; /* Allow wrapping if the controls are too wide */
+}
+
+
+textarea, #preview {
+  flex: 1;
+  resize: none;
+  font-family: 'Roboto Mono', monospace; 
+  font-size: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: var(--textarea-markdown);
+  color: var(--header-h2);
+  overflow-y: auto;
+}
+
+.primary-button {
+  margin-top: 10px;
   padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
+  background-color: var(--btn-color);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect for button */
-#submit-button:hover {
-  background-color: #0056b3;  /* Change background color on hover */
-  transform: scale(1.05);  /* Slightly enlarge the button */
-}
-/* Styling for the preview section */
-.preview-section {
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect for the preview section */
-.preview-section:hover {
-  border-color: #007bff;  /* Change border color on hover */
-  background-color: #e0f7ff;  /* Change background color on hover */
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);  /* Add a subtle glowing effect */
-}
-
-/* Styling for the preview header */
-.preview-section h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  transition: color 0.3s ease;
-}
-
-/* Hover effect for the preview header */
-.preview-section h2:hover {
-  color: #0056b3;  /* Change text color on hover */
-  text-decoration: underline;  /* Add underline effect on hover */
-}
-
-/* Styling for the preview div */
-#preview {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  min-height: 100px;
-  background-color: #fff;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect for the preview div */
-#preview:hover {
-  background-color: #f0f8ff;  /* Light blue background on hover */
+.primary-button:hover {
+  background-color: #004a99;
+}
+
+footer {
+  background-color: var(--nav-color);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  margin-top: auto;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px 5%;
+  }
+
+  .input-section, .preview-section {
+    max-width: 100%;
+  }
+
+  .header h1 {
+    color: var(--header-h1) !important;
+    font-size: 22px;
+  }
+  .mrkh1{
+    color: var(--header-h1) !important;
+  }
+
+  #theme-selector, #download-html {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+/* Toggle Switch Styles */
+.toggle-label {
+display: inline-flex;
+align-items: center;
+margin-left: 1rem;
+cursor: pointer;
+}
+
+.toggle-label input {
+display: none; /* Hide checkbox */
+}
+
+.toggle-label .slider {
+width: 40px;
+height: 20px;
+background-color: #ccc;
+border-radius: 15px;
+position: relative;
+transition: background-color 0.3s;
+}
+
+.toggle-label .slider::before {
+content: "";
+width: 16px;
+height: 16px;
+background-color: #fff;
+border-radius: 50%;
+position: absolute;
+top: 2px;
+left: 2px;
+transition: transform 0.3s;
+}
+
+.toggle-label input:checked + .slider {
+background-color: #4caf50;
+}
+
+.toggle-label input:checked + .slider::before {
+transform: translateX(20px);
+}
+
+/* Tool Button Styles */
+.tool-button {
+padding: 8px 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+background: white;
+cursor: pointer;
+margin-right: 10px;
+font-family: 'Inter', sans-serif;
+transition: background-color 0.3s ease;
+color: black;
+}
+
+.tool-button.active {
+background: #0066cc;
+color: white;
+}
+
+/* Add these to each theme section */
+.theme-dark .tool-button {
+background-color: #333;
+color: #fff;
+border-color: #555;
+}
+
+.theme-solarized .tool-button {
+background-color: #93a1a1;
+color: #fdf6e3;
+border-color: #839496;
+}
+
+/* Remove old download-html specific styles */
+#download-html {
+background-color: transparent;
+color: #666;
+font-weight: 500;
+}
+
+.download-content a,
+#download-html {
+color: #666;
+padding: 12px 20px;
+text-decoration: none;
+display: flex;
+align-items: center;
+font-size: 14px;
+transition: all 0.2s ease;
+position: relative;
+white-space: nowrap;
+font-weight: 500;
+width: 100%;
+box-sizing: border-box;
+border: none;
+background: none;
+cursor: pointer;
+text-align: left;
+}
+
+.download-content a:hover,
+#download-html:hover {
+background-color: #f8f9fa;
+color: #0066cc;
+padding-left: 23px;
+font-weight: 600;
+}
+
+/* Updated Download Dropdown Styles */
+.download-dropdown {
+position: relative;
+display: inline-block;
+}
+
+#download-btn {
+font-family: 'Inter', sans-serif;
+font-size: 14px;
+font-weight: 500;
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+background-color: #004a99;
+color: white;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+#download-btn::after {
+content: '▼';
+font-size: 10px;
+margin-left: 5px;
+}
+
+#download-btn:hover {
+background-color: #003366;
+transform: translateY(-1px);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Updated Download Link Styles */
+.download-content {
+visibility: hidden;
+opacity: 0;
+position: absolute;
+right: 0;
+top: calc(100% + 5px);
+background-color: #ffffff;
+width: 240px; /* Fixed width instead of min-width */
+border-radius: 8px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+padding: 8px 0;
+transition: all 0.2s ease-in-out;
+transform: translateY(-10px);
+z-index: 1000;
+overflow: hidden; /* Prevent content from spilling out */
+}
+
+.download-dropdown:hover .download-content,
+.download-content:hover {
+visibility: visible;
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Updated Download Link Styles */
+.download-content a {
+color: #666;
+padding: 12px 20px;
+text-decoration: none;
+display: flex;
+align-items: center;
+font-size: 14px;
+transition: all 0.2s ease;
+position: relative;
+white-space: nowrap;
+font-weight: 500;
+width: 100%;
+box-sizing: border-box;
+}
+
+.download-content a:hover {
+background-color: #f8f9fa;
+color: #0066cc;
+padding-left: 23px;
+font-weight: 600;
+}
+
+/* Ensure hover effect stays within bounds */
+.download-content a::before {
+content: '';
+position: absolute;
+left: 0;
+width: 3px;
+height: 0;
+background-color: #0066cc;
+transition: height 0.2s ease;
+}
+
+.download-content a:hover::before {
+height: 100%;
+}
+
+/* Theme-specific download link styles */
+.theme-dark .download-content a {
+color: #e0e0e0;
+}
+
+.theme-dark .download-content a:hover {
+background-color: #3d3d3d;
+color: #ffffff;
+}
+
+.theme-dark .download-content a::before {
+background-color: #ffffff;
+}
+
+.theme-sunset .download-content a {
+color: #663300;
+}
+
+.theme-sunset .download-content a:hover {
+background-color: #ffb380;
+color: #663300;
+}
+
+.theme-sunset .download-content a::before {
+background-color: #663300;
+}
+
+.theme-ocean .download-content a {
+color: #002147;
+}
+
+.theme-ocean .download-content a:hover {
+background-color: #5bb5d9;
+color: #002147;
+}
+
+.theme-ocean .download-content a::before {
+background-color: #002147;
+}
+
+.theme-blossom .download-content a {
+color: #4b2c2c;
+}
+
+.theme-blossom .download-content a:hover {
+background-color: #fcdcdc;
+color: #4b2c2c;
+}
+
+.theme-blossom .download-content a::before {
+background-color: #4b2c2c;
+}
+
+.theme-ember .download-content a {
+color: #990000;
+}
+
+.theme-ember .download-content a:hover {
+background-color: #ff9999;
+color: #990000;
+}
+
+.theme-ember .download-content a::before {
+background-color: #990000;
+}
+
+.theme-magic .download-content a {
+color: #4b0082;
+}
+
+.theme-magic .download-content a:hover {
+background-color: #c080c0;
+color: #4b0082;
+}
+
+.theme-magic .download-content a::before {
+background-color: #4b0082;
+}
+
+/* Add dropdown separator */
+.download-content a:not(:last-child) {
+border-bottom: 1px solid #eee;
+}
+
+.theme-dark .download-content a:not(:last-child) {
+border-bottom: 1px solid #404040;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.download-content {
+  width: 220px; /* Slightly smaller on mobile */
+}
+}
+
+.secondary-button {
+margin-left: 10px;
+padding: 8px 16px;
+background-color: #f44336;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-weight: 600;
+font-family: 'Inter', sans-serif;
+transition: background-color 0.3s ease;
+}
+
+.secondary-button:hover {
+background-color: #d32f2f;
+}
+hr {
+border: none;
+border-top: 1px solid #ccc; /* Adjust color */
+margin: 10px 0; /* Adjust spacing */
+}
+
+/* Hover Effect on Input and Preview Section */
+.input-section:focus-within, .preview-section:hover {
+transform: scale(1.02);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Input Header Layout Adjustments */
+.input-header {
+display: flex;
+flex-direction: column;
+gap: 10px; /* Adds spacing between header elements */
+}
+
+.input-header h2 {
+margin: 0; /* Remove margin for the header */
+}
+
+/* Controls Layout Adjustments */
+.controls {
+display: flex;
+justify-content: space-between; /* Distribute the controls evenly */
+align-items: center; /* Align controls vertically */
+margin-bottom: 15px; /* Adjust space below the controls */
+gap: 10px; /* Space between controls */
+flex-wrap: wrap; /* Allow controls to wrap when space is limited */
+}
+.theme-dark textarea, .theme-dark #preview {
+background-color: #1e1e1e;
+color: #ddd;
+border: 1px solid #444;
+}
+
+.theme-solarized body {
+background-color: #FDF6E3;
+color: #657b83;
+}
+
+.theme-solarized textarea, .theme-solarized #preview {
+background-color: #EEE8D5;
+color: #657b83;
+}
+
+.theme-sunset body {
+background-color: #ffcc99; 
+color: #663300;           
+}
+
+.theme-sunset textarea, .theme-sunset #preview {
+background-color: #ffb380; 
+color: #663300;           
+}
+
+
+
+.footer-content {
+max-width: 600px;
+margin: 0 auto;
+}
+
+.social-links {
+margin-top: 10px;
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+
+.social-links a {
+color: #ecf0f1;
+font-size: 1.5em;
+width: 50px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid transparent;
+border-radius: 50%;
+transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+color: #1abc9c;
+background-color: #ecf0f1;
+border-color: #1abc9c;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transform: scale(1.1);
+}
+main {
+max-width: 800px;
+margin: 2rem auto;
+padding: 2rem;
+background: #fff;
+border-radius: 25px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.43);
+}
+
+section {
+margin-bottom: 1.5rem;
+border-radius: 25px;
+}
+
+label {
+font-weight: 500;
+margin-bottom: 0.5rem;
+display: block;
+}
+
+input[type="file"] {
+display: block;
+margin-top: 0.5rem;
+padding: 0.5rem;
+background: #0066cc;
+color: #fff;
+border: 1px solid #ddd;
+border-radius: 25px;
+font-size: 1rem;
+cursor: pointer;
+transition: background 0.3s ease;
+}
+
+input[type="file"]:hover {
+background: #005bb5;
+}
+
+#preview {
+margin-top: 2rem;
+}
+
+#preview h2 {
+margin-bottom: 1rem;
+font-size: 1.5rem;
+}
+
+#content {
+border: 1px solid #ddd;
+padding: 1rem;
+border-radius: 8px;
+background: #fafafa;
 }
