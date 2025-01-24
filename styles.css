@@ -794,3 +794,79 @@ hr {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: scale(1.1);
 }
+/* Styling for textarea */
+#markdown-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for textarea */
+#markdown-input:hover {
+  border-color: #007bff;  /* Change border color on hover */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);  /* Add a glowing effect */
+}
+
+/* Styling for button */
+#submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for button */
+#submit-button:hover {
+  background-color: #0056b3;  /* Change background color on hover */
+  transform: scale(1.05);  /* Slightly enlarge the button */
+}
+/* Styling for the preview section */
+.preview-section {
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for the preview section */
+.preview-section:hover {
+  border-color: #007bff;  /* Change border color on hover */
+  background-color: #e0f7ff;  /* Change background color on hover */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);  /* Add a subtle glowing effect */
+}
+
+/* Styling for the preview header */
+.preview-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect for the preview header */
+.preview-section h2:hover {
+  color: #0056b3;  /* Change text color on hover */
+  text-decoration: underline;  /* Add underline effect on hover */
+}
+
+/* Styling for the preview div */
+#preview {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-height: 100px;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the preview div */
+#preview:hover {
+  background-color: #f0f8ff;  /* Light blue background on hover */
+}
