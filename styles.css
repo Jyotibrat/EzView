@@ -856,3 +856,27 @@ padding: 1rem;
 border-radius: 8px;
 background: #fafafa;
 }
+
+#scrBtn {
+  display: none; 
+  position: fixed; 
+  bottom: 20px;
+  right: 20px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background: #005bb5; 
+  color: white; 
+  cursor: pointer; 
+  padding: 15px; 
+  border-radius: 25%; 
+  font-size: 16px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  transition: opacity 0.3s, background-color 0.3s; 
+}
+
+#scrBtn:hover {
+  background-color: #0073e6; 
+  opacity: 0.9; 
+}/*/
+

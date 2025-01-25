@@ -182,3 +182,4 @@ clearButton.addEventListener('click', () => {
   markdownInput.value = ''; 
   renderMarkdown(); 
 });
+

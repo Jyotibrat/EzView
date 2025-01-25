@@ -100,7 +100,7 @@
         </section>
 
     </main>
-
+    <button onclick="topFunction()" id="scrBtn" title="Go to top">Top</button> 
       <footer>
         <p>Markdown Previewer &copy; <span id="year"></span> | Made with ❤️</p>
       </footer>
@@ -109,6 +109,28 @@
       <script>
         const year = new Date().getFullYear();
         document.getElementById('year').innerHTML=year;
+      </script>
+      <script>
+        // Get the button element
+let myBtn = document.getElementById("scrBtn");
+
+// Show or hide the button based on scroll position
+window.onscroll = function () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    myBtn.style.display = "block";
+  } else {
+    myBtn.style.display = "none";
+  }
+};
+
+// Scroll to the top of the page smoothly
+function topFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
       </script>
 </body>
 </html>
