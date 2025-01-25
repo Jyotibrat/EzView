@@ -11,17 +11,20 @@
 <body>
     <div id="navbar-placeholder"></div>
 
-    <main>
-        <section>
-            <label for="file">Upload Markdown File:</label>
-            <input type="file" id="file" name="file" accept=".md" required>
-        </section>
+    <!-- Wrapper for content -->
+    <div class="content-wrapper">
+        <main>
+            <section>
+                <label for="file">Upload Markdown File:</label>
+                <input type="file" id="file" name="file" accept=".md" required>
+            </section>
 
-        <section id="preview">
-            <h2>Preview</h2>
-            <div id="content"></div>
-        </section>
-    </main>
+            <section id="preview">
+                <h2>Preview</h2>
+                <div id="content"></div>
+            </section>
+        </main>
+    </div>
 
     <button onclick="topFunction()" id="scrBtn" title="Go to top">Top</button> 
 
@@ -31,47 +34,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="script.js" defer></script>
     <script src="loadComponents.js" defer></script>
-    <script>
-        // Set current year in footer
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById('year').textContent = new Date().getFullYear();
-        });
-
-        // Add event listener for file upload
-        const fileInput = document.getElementById('file');
-        const contentDiv = document.getElementById('content');
-
-        fileInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    const markdown = reader.result;
-                    contentDiv.innerHTML = marked.parse(markdown);
-                };
-                reader.readAsText(file);
-            }
-        });
-
-        // Get the button element
-        let myBtn = document.getElementById("scrBtn");
-
-        // Show or hide the button based on scroll position
-        window.onscroll = function () {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                myBtn.style.display = "block";
-            } else {
-                myBtn.style.display = "none";
-            }
-        };
-
-        // Scroll to the top of the page smoothly
-        function topFunction() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
-        }
-    </script>
 </body>
+
 </html>

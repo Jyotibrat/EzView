@@ -6,11 +6,14 @@ body, h1, h2, p, button, select, textarea, div {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif; /* Added fallback fonts */
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -50,7 +53,7 @@ input[type="file"] {
   display: block;
   margin-top: 0.5rem;
   padding: 0.5rem;
-  background: #0066cc;
+  background: #004a99; /* Darkened button for better contrast */
   color: #fff;
   border: 1px solid #ddd;
   border-radius: 25px;
@@ -61,6 +64,11 @@ input[type="file"] {
 
 input[type="file"]:hover {
   background: #005bb5;
+}
+
+input[type="file"]:focus {
+  outline: 2px solid #005bb5;
+  outline-offset: 4px;
 }
 
 #preview {
@@ -100,4 +108,18 @@ input[type="file"]:hover {
 #scrBtn:hover {
   background-color: #0073e6; 
   opacity: 0.9; 
+}
+
+#scrBtn:focus {
+  outline: 2px solid #005bb5;
+  outline-offset: 4px;
+}
+.content-wrapper {
+  flex: 1; /* Pushes footer to the bottom */
+}
+
+#footer-placeholder {
+  color: white;
+  text-align: center;
+  
 }
