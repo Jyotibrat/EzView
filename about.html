@@ -4,72 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: white;
-        }
-
-        section {
-            margin: 1.5rem 0;
-        }
-
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/components.css">
 </head>
 <body>
-    <header>
-        <a href="index.html"><h1>Markdown Previewer</h1></a>
-        <div class="header-actions">
-          <select id="theme-selector">
-            <option value="light">🌞 Light</option>
-            <option value="dark">🌙 Dark</option>
-            <option value="solarized">🌅 Solarized</option>
-            <option value="sunset">🌇 Sunset</option>
-            <option value="ocean">🌊 Ocean</option>
-            <option value="blossom">🌸 Blossom</option>
-            <option value="ember">🔥 Ember</option>
-            <option value="magic">🌃 Magic</option>
-          </select>
-        </div>
-      </header>
-      <!-- about section -->
-      <main>
-        <h1 style="color: #333;">About MarkView</h1>
+    <div id="navbar-placeholder"></div>
 
+    <!-- About section -->
+    <main>
+        <h1 style="color: #333;">About MarkView</h1>
         <section>
             <h2>Overview</h2>
-            <p>MarkView is a simple yet powerful Markdown Previewer designed to help users write and preview Markdown content in real-time. It provides a seamless writing experience by combining live editing with customizable themes and export options. This project is a part of the <strong>Android Club Winter of Code 2024</strong> initiative and is open to contributions from developers of all levels.</p>
+            <p>MarkView is a simple yet powerful Markdown Previewer designed to help users write and preview Markdown content in real-time. It provides a seamless writing experience by combining live [...]
         </section>
 
         <section>
-            <h2>How to use ?</h2>
-            <p>MarkView is easy to use. Simply type your Markdown content in the input box on the left and see the formatted output in the preview section on the right. You can switch between different themes, download the preview as an HTML file, and adjust the font size to suit your preferences. MarkView is designed to be beginner-friendly and is ideal for anyone looking to write and preview Markdown content effortlessly.</p>
+            <h2>How to use?</h2>
+            <p>MarkView is easy to use. Simply type your Markdown content in the input box on the left and see the formatted output in the preview section on the right. You can switch between differen[...]
         </section>
 
         <section>
@@ -96,41 +47,37 @@
 
         <section>
             <h2>Contribution</h2>
-            <p>MarkView is an open-source project aimed at fostering contributions from developers. Whether you are a beginner or an experienced developer, we welcome you to contribute and help improve this project. Visit our <a href="https://github.com/Jyotibrat/MarkView" target="_blank">GitHub repository</a> to get started.</p>
+            <p>MarkView is an open-source project aimed at fostering contributions from developers. Whether you are a beginner or an experienced developer, we welcome you to contribute and help improv[...]
         </section>
-
     </main>
+
     <button onclick="topFunction()" id="scrBtn" title="Go to top">Top</button> 
-      <footer>
-        <p>Markdown Previewer &copy; <span id="year"></span> | Made with ❤️</p>
-      </footer>
-      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-      <script src="script.js"></script>
-      <script>
-        const year = new Date().getFullYear();
-        document.getElementById('year').innerHTML=year;
-      </script>
-      <script>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js" defer></script>
+    <script src="loadComponents.js" defer></script>
+    <script>
         // Get the button element
-let myBtn = document.getElementById("scrBtn");
+        let myBtn = document.getElementById("scrBtn");
 
-// Show or hide the button based on scroll position
-window.onscroll = function () {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    myBtn.style.display = "block";
-  } else {
-    myBtn.style.display = "none";
-  }
-};
+        // Show or hide the button based on scroll position
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                myBtn.style.display = "block";
+            } else {
+                myBtn.style.display = "none";
+            }
+        };
 
-// Scroll to the top of the page smoothly
-function topFunction() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
-
-      </script>
+        // Scroll to the top of the page smoothly
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }
+    </script>
 </body>
 </html>
