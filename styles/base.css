@@ -5,24 +5,6 @@ body, h1, h2, p, button, select, textarea, div {
   box-sizing: border-box;
 }
 
-/* Light mode styles */
-:root {
-  --primary-color: white;
-  --textarea-markdown: #f9f9f9;
-  --header-h2: black;
-  --input-sec-bg: white;
-  --shadow-color: #333;
-  --btn-color: #0066cc;
-}
-
-.dark {
-  --primary-color: black;
-  --textarea-markdown: black;
-  --header-h2: white;
-  --input-sec-bg: #142e48;
-  --btn-color: rgb(78, 151, 151);
-}
-
 body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -39,6 +21,8 @@ body {
   padding: 20px 10%;
   display: flex;
   flex-wrap: wrap;
+  color: var(--text-color);
+  background-color: var(--background-color);
   gap: 20px;
 }
 
@@ -48,12 +32,12 @@ body {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--background-color);
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='none' stroke='%23666' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 12px;
-  color: #333;
+  color: var(--text-color);
   cursor: pointer;
   width: 150px; 
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -78,15 +62,15 @@ textarea, #preview {
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: var(--textarea-markdown);
-  color: var(--header-h2);
+  color: var(--text-color);
   overflow-y: auto;
 }
 
 .primary-button {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: var(--btn-color);
-  color: white;
+  background-color: var(--button-color);
+  color: var(--background-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -172,7 +156,7 @@ hr {
   background-color: #4caf50;
 }
 
-toggle-label input:checked + .slider::before {
+.toggle-label input:checked + .slider::before {
   transform: translateX(20px);
 }
 
@@ -335,4 +319,41 @@ toggle-label input:checked + .slider::before {
 
 .secondary-button:hover {
   background-color: #d32f2f;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 5%;
+    flex-direction: column;
+  }
+  .input-section, .preview-section {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .toggle-label {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  #font-size-selector {
+    width: 100%;
+  }
+  .primary-button, .secondary-button {
+    width: 100%;
+  }
+  .tool-button {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .controls {
+    gap: 5px;
+  }
 }

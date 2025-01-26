@@ -136,3 +136,117 @@
   background-color: #c080c0; 
   color: #4b0082;          
 }
+
+/* Base Light Theme */
+body.theme-light {
+  --background-color: #ffffff;
+  --input-sec-bg: #f4f4f4;
+  --text-color: #000000;
+  --header-background: #f1f1f1;
+  --header-color: #333;
+  --footer-background: #f1f1f1;
+  --footer-color: #333;
+  --button-background: #e0e0e0;
+  --button-color: #000;
+}
+
+/* Base Dark Theme */
+body.theme-dark {
+  --background-color: #1e1e1e;
+  --input-sec-bg: #5b5b5b65;
+  --text-color: #ffffff;
+  --header-background: #333333;
+  --header-color: #ffffff;
+  --footer-background: #333333;
+  --footer-color: #ffffff;
+  --button-background: #444;
+  --button-color: #3f3f3f;
+}
+
+/* Solarized Theme */
+body.theme-solarized {
+  --background-color: #fdf6e3;
+  --text-color: #657b83;
+  --header-background: #eee8d5;
+  --header-color: #586e75;
+  --footer-background: #eee8d5;
+  --footer-color: #586e75;
+  --button-background: #b58900;
+  --button-color: #ffffff;
+}
+
+/* Sunset Theme */
+body.theme-sunset {
+  --background-color: #ffecd2;
+  --text-color: #ff6347;
+  --header-background: #ff9a8b;
+  --header-color: #ffffff;
+  --footer-background: #ff9a8b;
+  --footer-color: #ffffff;
+  --button-background: #ff6347;
+  --button-color: #ffffff;
+}
+
+/* Ocean Theme */
+body.theme-ocean {
+  --background-color: #e0f7fa;
+  --text-color: #006064;
+  --header-background: #4dd0e1;
+  --header-color: #004d40;
+  --footer-background: #4dd0e1;
+  --footer-color: #004d40;
+  --button-background: #00796b;
+  --button-color: #ffffff;
+}
+
+/* Blossom Theme */
+body.theme-blossom {
+  --background-color: #fff7f8;
+  --text-color: #d81b60;
+  --header-background: #f8bbd0;
+  --header-color: #880e4f;
+  --footer-background: #f8bbd0;
+  --footer-color: #880e4f;
+  --button-background: #c2185b;
+  --button-color: #ffffff;
+}
+
+/* Ember Theme */
+body.theme-ember {
+  --background-color: #ffebee;
+  --text-color: #d32f2f;
+  --header-background: #ef9a9a;
+  --header-color: #b71c1c;
+  --footer-background: #ef9a9a;
+  --footer-color: #b71c1c;
+  --button-background: #c62828;
+  --button-color: #ffffff;
+}
+
+/* Magic Theme */
+body.theme-magic {
+  --background-color: #ede7f6;
+  --text-color: #673ab7;
+  --header-background: #d1c4e9;
+  --header-color: #311b92;
+  --footer-background: #d1c4e9;
+  --footer-color: #311b92;
+  --button-background: #512da8;
+  --button-color: #ffffff;
+}
+
+/* Apply the variables to elements */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.header, .navbar, .footer {
+  background-color: var(--header-background);
+  color: var(--header-color);
+}
+
+button {
+  background-color: var(--button-background);
+  color: var(--button-color);
+}

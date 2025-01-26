@@ -9,22 +9,22 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: var(--primary-color); /* Use theme variable */
+  color: var(--text-color); /* Use theme variable */
 }
 
 main {
   max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
-  background: white;
+  background: var(--background-color); /* Use theme variable */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   text-align: center;
-  color: white;
+  color: var(--text-color); /* Use theme variable */
 }
 
 section {
@@ -32,7 +32,7 @@ section {
 }
 
 a {
-  color: #4CAF50;
+  color: var(--btn-color); /* Use theme variable */
   text-decoration: none;
 }
 
@@ -44,14 +44,15 @@ label {
   font-weight: 500;
   margin-bottom: 0.5rem;
   display: block;
+  color: var(--text-color);
 }
 
 input[type="file"] {
   display: block;
   margin-top: 0.5rem;
   padding: 0.5rem;
-  background: #0066cc;
-  color: #fff;
+  background: var(--btn-color); /* Use theme variable */
+  color: var(--button-color); /* Use theme variable */
   border: 1px solid #ddd;
   border-radius: 25px;
   font-size: 1rem;
@@ -65,18 +66,20 @@ input[type="file"]:hover {
 
 #preview {
   margin-top: 2rem;
+  background: var(--background-color);
 }
 
 #preview h2 {
   margin-bottom: 1rem;
   font-size: 1.5rem;
+  color: var(--text-color);
 }
 
 #content {
   border: 1px solid #ddd;
   padding: 1rem;
   border-radius: 8px;
-  background: #fafafa;
+  background: var(--textarea-markdown); /* Use theme variable */
 }
 
 #scrBtn {
@@ -87,8 +90,7 @@ input[type="file"]:hover {
   z-index: 99; 
   border: none; 
   outline: none; 
-  background: #005bb5; 
-  color: white; 
+  color: var(--button-color); /* Use theme variable */
   cursor: pointer; 
   padding: 15px; 
   border-radius: 25%; 
@@ -100,4 +102,46 @@ input[type="file"]:hover {
 #scrBtn:hover {
   background-color: #0073e6; 
   opacity: 0.9; 
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  main {
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: none;
+  }
+  #preview {
+    margin-top: 1rem;
+  }
+  #preview h2 {
+    font-size: 1.25rem;
+  }
+  #content {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    margin: 0.5rem;
+    padding: 0.5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  label {
+    font-size: 0.875rem;
+  }
+  input[type="file"] {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+  #preview h2 {
+    font-size: 1rem;
+  }
+  #scrBtn {
+    padding: 10px;
+    font-size: 14px;
+  }
 }

@@ -11,11 +11,13 @@ body {
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
+    background-color: var(--primary-color); /* Use theme variable */
+    color: var(--text-color); /* Use theme variable */
 }
 
 .footer-content {
-    background-color: #0066cc;
-    color: white;
+    background-color: var(--header-background); /* Use theme variable */
+    color: var(--header-color); /* Use theme variable */
     text-align: center;
     padding: 15px;
     font-size: 14px;
@@ -33,7 +35,7 @@ body {
 }
 
 .footer-content .social-links a {
-    color: #ecf0f1;
+    color: var(--text-color); /* Use theme variable */
     font-size: 1.5em;
     width: 50px;
     height: 50px;
@@ -46,9 +48,40 @@ body {
 }
 
 .footer-content .social-links a:hover {
-    color: #1abc9c;
-    background-color: #ecf0f1;
-    border-color: #1abc9c;
+    color: var(--btn-color); /* Use theme variable */
+    background-color: var(--header-background); /* Use theme variable */
+    border-color: var(--btn-color); /* Use theme variable */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .footer-content .social-links {
+        gap: 10px;
+    }
+    .footer-content .social-links a {
+        font-size: 1.2em;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        padding: 5px;
+        font-size: 10px;
+    }
+    .footer-content .social-links {
+        gap: 5px;
+    }
+    .footer-content .social-links a {
+        font-size: 1em;
+        width: 30px;
+        height: 30px;
+    }
 }
