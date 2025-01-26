@@ -1,3 +1,15 @@
+/* logo styles */
+.logo {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+}
+
+.logo:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0px 12px 3px white;
+}
+
 /* Component-Specific Styles */
 .input-section:focus-within, .preview-section:hover {
     transform: scale(1.02);
@@ -93,7 +105,7 @@
 .navbar {
   background-color: #0066cc;
   color: white;
-  padding: 20px 10%;
+  padding: 10px 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
