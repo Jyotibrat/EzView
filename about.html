@@ -4,23 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fb;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header .header-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        header select {
+            padding: 8px 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        header select:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        main h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            color: #2e2e2e;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        section ul {
+            margin-top: 10px;
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Link Styles */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin: 5px;
+        }
+
+        footer span {
+            color: #f39c12;
+        }
+
+        /* Scroll Button */
+        #scrBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        #scrBtn:hover {
+            background-color: #2980b9;
+            transform: scale(1.1);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
+    <header>
+        <a href="index.html"><h1>Markdown Previewer</h1></a>
+        <div class="header-actions">
+            <select id="theme-selector">
+                <option value="light">🌞 Light</option>
+                <option value="dark">🌙 Dark</option>
+                <option value="solarized">🌅 Solarized</option>
+                <option value="sunset">🌇 Sunset</option>
+                <option value="ocean">🌊 Ocean</option>
+                <option value="blossom">🌸 Blossom</option>
+                <option value="ember">🔥 Ember</option>
+                <option value="magic">🌃 Magic</option>
+            </select>
+        </div>
+    </header>
 
-    <!-- About section -->
+    <!-- about section -->
     <main>
-        <h1 style="color: #333;">About MarkView</h1>
+        <h1>About MarkView</h1>
+
         <section>
             <h2>Overview</h2>
-            <p>MarkView is a simple yet powerful Markdown Previewer designed to help users write and preview Markdown content in real-time. It provides a seamless writing experience by combining live [...]
+            <p>MarkView is a simple yet powerful Markdown Previewer designed to help users write and preview Markdown content in real-time. It provides a seamless writing experience by combining live editing with customizable themes and export options. This project is a part of the <strong>Android Club Winter of Code 2024</strong> initiative and is open to contributions from developers of all levels.</p>
         </section>
 
         <section>
-            <h2>How to use?</h2>
-            <p>MarkView is easy to use. Simply type your Markdown content in the input box on the left and see the formatted output in the preview section on the right. You can switch between differen[...]
+            <h2>How to use ?</h2>
+            <p>MarkView is easy to use. Simply type your Markdown content in the input box on the left and see the formatted output in the preview section on the right. You can switch between different themes, download the preview as an HTML file, and adjust the font size to suit your preferences. MarkView is designed to be beginner-friendly and is ideal for anyone looking to write and preview Markdown content effortlessly.</p>
         </section>
 
         <section>
@@ -47,22 +232,23 @@
 
         <section>
             <h2>Contribution</h2>
-            <p>MarkView is an open-source project aimed at fostering contributions from developers. Whether you are a beginner or an experienced developer, we welcome you to contribute and help improv[...]
+            <p>MarkView is an open-source project aimed at fostering contributions from developers. Whether you are a beginner or an experienced developer, we welcome you to contribute and help improve this project. Visit our <a href="https://github.com/Jyotibrat/MarkView" target="_blank">GitHub repository</a> to get started.</p>
         </section>
+
     </main>
 
     <button onclick="topFunction()" id="scrBtn" title="Go to top">Top</button> 
 
-    <div id="footer-placeholder"></div>
+    <footer>
+        <p>Markdown Previewer &copy; <span id="year"></span> | Made with ❤</p>
+    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="script.js" defer></script>
-    <script src="loadComponents.js" defer></script>
     <script>
-        // Get the button element
-        let myBtn = document.getElementById("scrBtn");
+        const year = new Date().getFullYear();
+        document.getElementById('year').innerHTML = year;
 
-        // Show or hide the button based on scroll position
+        // Scroll Button Functionality
+        let myBtn = document.getElementById("scrBtn");
         window.onscroll = function () {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 myBtn.style.display = "block";
@@ -71,12 +257,8 @@
             }
         };
 
-        // Scroll to the top of the page smoothly
         function topFunction() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     </script>
 </body>
