@@ -3,25 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About MarkView</title>
     <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/themes.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #444;
+            background: linear-gradient(135deg, #f9f9f9, #f2f2f2);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: var(--text-color); /* Combined style using variable */
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #555;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 15px 20px;
+            background: #fdfdfd;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        /* Button */
+        #scrBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff9800;
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        #scrBtn:hover {
+            background: #ff5722;
+        }
+
+        /* Footer and Navbar Placeholder */
+        #navbar-placeholder,
+        #footer-placeholder {
+            text-align: center;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder">Navbar will load here</div>
 
-    <!-- About section -->
     <main>
-        <h1 style="color: var(--text-color);">About MarkView</h1>
+        <h1>About MarkView</h1>
         <section>
             <h2>Overview</h2>
-            <p>MarkView is a simple yet powerful Markdown Previewer designed to help users write and preview Markdown content in real-time. It provides a seamless writing experience by combining live [...]
+            <p>MarkView is a simple yet powerful Markdown Previewer designed to help users write and preview Markdown content in real-time. It provides a seamless writing experience by combining live editing and instant preview.</p>
         </section>
 
         <section>
             <h2>How to use?</h2>
-            <p>MarkView is easy to use. Simply type your Markdown content in the input box on the left and see the formatted output in the preview section on the right. You can switch between differen[...]
+            <p>MarkView is easy to use. Simply type your Markdown content in the input box on the left, and see the formatted output in the preview section on the right.</p>
         </section>
 
         <section>
@@ -36,7 +116,6 @@
 
         <section>
             <h2>Technologies Used</h2>
-            <p>MarkView is built using the following technologies:</p>
             <ul>
                 <li>HTML5</li>
                 <li>CSS3</li>
@@ -48,7 +127,7 @@
 
         <section>
             <h2>Contribution</h2>
-            <p>MarkView is an open-source project aimed at fostering contributions from developers. Whether you are a beginner or an experienced developer, we welcome you to contribute and help improv[...]
+            <p>MarkView is an open-source project aimed at fostering contributions from developers. Whether you are a beginner or an experienced developer, we welcome you to contribute and help improve the project.</p>
         </section>
     </main>
 
@@ -56,25 +135,18 @@
         <i class="fas fa-arrow-up fa-lg"></i>
     </button> 
 
-    <div id="footer-placeholder"></div>
+    <div id="footer-placeholder">Footer will load here</div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js" defer></script>
     <script src="loadComponents.js" defer></script>
     <script>
-        // Get the button element
         let myBtn = document.getElementById("scrBtn");
 
-        // Show or hide the button based on scroll position
         window.onscroll = function () {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                myBtn.style.display = "block";
-            } else {
-                myBtn.style.display = "none";
-            }
+            myBtn.style.display = document.documentElement.scrollTop > 20 ? "block" : "none";
         };
 
-        // Scroll to the top of the page smoothly
         function topFunction() {
             window.scrollTo({
                 top: 0,
