@@ -3,11 +3,14 @@
   width: 92px;
   height: 92px;
   border-radius: 50%;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(1);
 }
 
 .logo:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0px 12px 3px white;
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.7);
+  filter: brightness(1.1);
 }
 
 /* Component-Specific Styles */

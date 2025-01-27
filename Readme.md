@@ -6,8 +6,16 @@ This directory contains all main source files of the project.
 
 # Directory Contents
 
-- **index.html**: This is the HTML structure of the website.
-- **styles.css**: This gives styling to the project.
-- **script.js**: This provides the main logic of the project.
-- **about.html**: This is the HTML structure for the about page of the website.
-- **file_upload.html**: This is the HTML structure for the file upload page of the website.
+### HTML Files :
+- **index.html**: Main page with markdown editor and preview
+- **about.html**: Project information and documentation
+- **file_upload.html**: Markdown file upload functionality
+- **navbar.html**: Navigation bar component
+- **footer.html**: Footer component with social links
+
+### JavaScript Files :
+- **script.js**: Core application logic, handling markdown conversion and UI interactions
+
+### Styles Directory :
+- Contains all CSS files for styling the application
+- See styles/README.md for detailed information
