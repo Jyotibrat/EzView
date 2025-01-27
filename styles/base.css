@@ -324,12 +324,18 @@ hr {
 /* Responsive Styles */
 @media (max-width: 768px) {
   .container {
-    padding: 20px 5%;
+    padding: 10px 5%;
     flex-direction: column;
   }
   .input-section, .preview-section {
     max-width: 100%;
+    min-height: 300px;
     margin-bottom: 20px;
+  }
+  textarea, #preview {
+    min-height: 250px;
+    max-height: none;
+    height: auto;
   }
   .controls {
     flex-direction: column;
@@ -339,9 +345,47 @@ hr {
     margin-left: 0;
     margin-top: 10px;
   }
+
+  /* Show preview button styles */
+  #show-preview {
+    display: block !important; /* Force display on mobile */
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    background-color: var(--button-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 250px;
+  }
+
+  #show-preview:hover {
+    background-color: var(--button-hover-color);
+  }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 5px;
+  }
+  .input-section, .preview-section {
+    min-height: 200px;
+    padding: 10px;
+    margin: 5px 0;
+  }
+  textarea, #preview {
+    min-height: 200px;
+    font-size: 14px;
+    padding: 8px;
+  }
+  textarea {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
   #font-size-selector {
     width: 100%;
   }

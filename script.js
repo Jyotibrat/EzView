@@ -2,10 +2,6 @@
 
 const markdownInput = document.getElementById('markdown-input');
 const preview = document.getElementById('preview');
-const showPreviewButton = document.getElementById('show-preview');
-const fontSizeSelector = document.getElementById('font-size-selector');
-const realTimeToggle = document.getElementById('real-time-toggle');
-const spellCheckToggle = document.getElementById('spell-check-toggle');
 let themeSelector;
 
 // Utility: Debounce function for performance optimization (real-time preview)
@@ -18,6 +14,14 @@ function debounce(func, delay = 300) {
 }
 
 function renderMarkdown() {
+  const markdownInput = document.getElementById('markdown-input');
+  const preview = document.getElementById('preview');
+  
+  if (!markdownInput || !preview) {
+    console.log('Markdown editor elements not found on this page');
+    return;
+  }
+
   const markdownText = markdownInput.value;
   console.log('Rendering markdown:', markdownText);
   try {
@@ -32,12 +36,29 @@ function renderMarkdown() {
 // Load the navbar dynamically
 function loadNavbar() {
   const navbarPlaceholder = document.getElementById('navbar-placeholder');
-  fetch('navbar.html')
+  return fetch('navbar.html')
     .then(response => response.text())
     .then(data => {
       navbarPlaceholder.innerHTML = data;
       themeSelector = document.getElementById('theme-selector');
       attachThemeListener();
+      
+      // Add Sidebar Navigation Handler after navbar is loaded
+      const hamburger = document.querySelector('.hamburger');
+      if (hamburger) {
+        hamburger.addEventListener('click', function() {
+          this.classList.toggle('active');
+          document.querySelector('.header-actions').classList.toggle('active');
+        });
+      }
+
+      // Close sidebar when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.header-actions') && !e.target.closest('.hamburger')) {
+          document.querySelector('.hamburger')?.classList.remove('active');
+          document.querySelector('.header-actions')?.classList.remove('active');
+        }
+      });
     })
     .catch(error => console.error('Error loading navbar:', error));
 }
@@ -45,7 +66,7 @@ function loadNavbar() {
 // Load the footer dynamically
 function loadFooter() {
   const footerPlaceholder = document.getElementById('footer-placeholder');
-  fetch('footer.html')
+  return fetch('footer.html')
     .then(response => response.text())
     .then(data => {
       footerPlaceholder.innerHTML = data;
@@ -73,8 +94,15 @@ function applyTheme(theme) {
 // Adjust Font Size
 function adjustFontSize(size) {
   const fontSize = `${size}px`;
-  markdownInput.style.fontSize = fontSize;
-  preview.style.fontSize = fontSize;
+  const markdownInput = document.getElementById('markdown-input');
+  const preview = document.getElementById('preview');
+  
+  if (markdownInput) {
+    markdownInput.style.fontSize = fontSize;
+  }
+  if (preview) {
+    preview.style.fontSize = fontSize;
+  }
   console.log('Adjusted font size to', fontSize);
 }
 
@@ -92,16 +120,47 @@ function downloadPreview() {
 
 // Toggle Preview Mode (Real-Time vs Manual)
 function togglePreviewMode(isRealTime) {
-  if (isRealTime) {
+  const markdownInput = document.getElementById('markdown-input');
+  const showPreviewButton = document.getElementById('show-preview');
+  const isMobile = window.innerWidth <= 768;
+  
+  if (!markdownInput) {
+    console.log('Markdown input not found, skipping preview mode toggle');
+    return;
+  }
+
+  // Always enable real-time preview on mobile
+  if (isMobile || isRealTime) {
     markdownInput.addEventListener('input', debouncedRenderMarkdown);
-    showPreviewButton.style.display = 'none';
     console.log('Real-time preview enabled');
   } else {
     markdownInput.removeEventListener('input', debouncedRenderMarkdown);
-    showPreviewButton.style.display = 'inline-block'; // Show manual preview button
     console.log('Manual preview enabled');
   }
+
+  // Show preview button only when not in real-time mode and not on mobile
+  if (showPreviewButton) {
+    showPreviewButton.style.display = (isMobile || isRealTime) ? 'none' : 'inline-block';
+  }
 }
+
+// Add window resize listener to handle preview button visibility
+window.addEventListener('resize', debounce(() => {
+  const isMobile = window.innerWidth <= 768;
+  const markdownInput = document.getElementById('markdown-input');
+  
+  if (markdownInput) {
+    // Re-enable real-time preview on mobile
+    if (isMobile) {
+      markdownInput.addEventListener('input', debouncedRenderMarkdown);
+    }
+    // Reset to user preference on desktop
+    else {
+      const realTimeToggle = document.getElementById('real-time-toggle');
+      togglePreviewMode(realTimeToggle?.checked || false);
+    }
+  }
+}, 250));
 
 function downloadFile(blob, filename) {
   const url = URL.createObjectURL(blob);
@@ -165,11 +224,18 @@ function downloadAsMarkdown() {
 
 function attachEventListeners() {
   console.log('Attaching event listeners');
-  showPreviewButton.addEventListener('click', () => {
-    console.log('Show Preview button clicked');
-    renderMarkdown();
-  });
+  
+  // Check if elements exist before attaching listeners
+  const showPreviewButton = document.getElementById('show-preview');
+  if (showPreviewButton) {
+    showPreviewButton.addEventListener('click', () => {
+      console.log('Show Preview button clicked');
+      renderMarkdown();
+    });
+  }
 
+  // Move fontSizeSelector inside this function
+  const fontSizeSelector = document.getElementById('font-size-selector');
   if (fontSizeSelector) {
     fontSizeSelector.addEventListener('change', (e) => {
       console.log('Font size changed to', e.target.value);
@@ -177,6 +243,15 @@ function attachEventListeners() {
     });
   }
 
+  // Move other element checks inside this function
+  const realTimeToggle = document.getElementById('real-time-toggle');
+  const spellCheckToggle = document.getElementById('spell-check-toggle');
+  const downloadHtmlButton = document.getElementById('download-html');
+  const downloadPdfButton = document.getElementById('download-pdf');
+  const downloadMdButton = document.getElementById('download-md');
+  const clearButton = document.getElementById('clear-markdown');
+
+  // Attach listeners only if elements exist
   if (realTimeToggle) {
     realTimeToggle.addEventListener('change', (e) => {
       console.log('Real-time toggle changed to', e.target.checked);
@@ -196,7 +271,6 @@ function attachEventListeners() {
     });
   }
 
-  const downloadHtmlButton = document.getElementById('download-html');
   if (downloadHtmlButton) {
     downloadHtmlButton.addEventListener('click', (e) => {
       e.preventDefault();
@@ -205,7 +279,6 @@ function attachEventListeners() {
     });
   }
 
-  const downloadPdfButton = document.getElementById('download-pdf');
   if (downloadPdfButton) {
     downloadPdfButton.addEventListener('click', async (e) => {
       e.preventDefault();
@@ -214,12 +287,19 @@ function attachEventListeners() {
     });
   }
 
-  const downloadMdButton = document.getElementById('download-md');
   if (downloadMdButton) {
     downloadMdButton.addEventListener('click', (e) => {
       e.preventDefault();
       console.log('Download Markdown button clicked');
       downloadAsMarkdown();
+    });
+  }
+
+  if (clearButton) {
+    clearButton.addEventListener('click', () => {
+      markdownInput.value = '';
+      renderMarkdown();
+      console.log('Clear button clicked, markdown input cleared');
     });
   }
 }
@@ -228,24 +308,33 @@ const debouncedRenderMarkdown = debounce(renderMarkdown, 200);
 
 function initializeApp() {
   console.log('Initializing app');
-  loadNavbar();
-  loadFooter();
-  attachEventListeners();
-  // Apply default theme if themeSelector is not present initially
-  applyTheme('light');
-  adjustFontSize(fontSizeSelector ? fontSizeSelector.value : '18');
-  togglePreviewMode(false);
+  
+  Promise.all([loadNavbar(), loadFooter()])
+    .then(() => {
+      attachEventListeners();
+      applyTheme('light');
+      
+      const markdownInput = document.getElementById('markdown-input');
+      const preview = document.getElementById('preview');
+      
+      if (markdownInput && preview) {
+        const fontSizeSelector = document.getElementById('font-size-selector');
+        adjustFontSize(fontSizeSelector ? fontSizeSelector.value : '18');
+        
+        // Enable real-time preview by default on mobile
+        const isMobile = window.innerWidth <= 768;
+        togglePreviewMode(isMobile);
+        
+        // Update real-time toggle to reflect mobile state
+        const realTimeToggle = document.getElementById('real-time-toggle');
+        if (realTimeToggle && isMobile) {
+          realTimeToggle.checked = true;
+        }
+      } else {
+        console.log('Not on markdown editor page, skipping editor initialization');
+      }
+    })
+    .catch(error => console.error('Error initializing app:', error));
 }
 
 document.addEventListener('DOMContentLoaded', initializeApp);
-
-// Get reference to the Clear button
-const clearButton = document.getElementById('clear-markdown');
-
-if (clearButton) {
-  clearButton.addEventListener('click', () => {
-    markdownInput.value = '';
-    renderMarkdown();
-    console.log('Clear button clicked, markdown input cleared');
-  });
-}
