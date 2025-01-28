@@ -48,12 +48,16 @@
             }
         });
 
-        // Get the button element
+        // Get the button and footer elements
         let myBtn = document.getElementById("scrBtn");
+        let footer = document.getElementById("footer-placeholder");
 
-        // Show or hide the button based on scroll position
+        // Show or hide the button based on scroll position and footer visibility
         window.onscroll = function () {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            const footerPosition = footer.offsetTop - window.innerHeight;
+
+            if (scrollPosition > 20 && scrollPosition < footerPosition) {
                 myBtn.style.display = "block";
             } else {
                 myBtn.style.display = "none";

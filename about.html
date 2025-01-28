@@ -7,89 +7,9 @@
     <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/themes.css">
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #444;
-            background: linear-gradient(135deg, #f9f9f9, #f2f2f2);
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            color: var(--text-color); /* Combined style using variable */
-            text-align: center;
-            font-size: 2.5rem;
-            margin-top: 20px;
-        }
-
-        h2 {
-            color: #555;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        main {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-            background: #fff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-        }
-
-        section {
-            margin-bottom: 30px;
-            padding: 15px 20px;
-            background: #fdfdfd;
-            border-radius: 10px;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        ul {
-            padding-left: 20px;
-            list-style: disc;
-        }
-
-        ul li {
-            margin: 10px 0;
-        }
-
-        /* Button */
-        #scrBtn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #ff9800;
-            color: #fff;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            display: none;
-        }
-
-        #scrBtn:hover {
-            background: #ff5722;
-        }
-
-        /* Footer and Navbar Placeholder */
-        #navbar-placeholder,
-        #footer-placeholder {
-            text-align: center;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            font-size: 1rem;
-            margin-top: 20px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="about-page">
     <div id="navbar-placeholder">Navbar will load here</div>
 
     <main>
@@ -120,7 +40,7 @@
                 <li>HTML5</li>
                 <li>CSS3</li>
                 <li>JavaScript</li>
-                <li><a href="https://github.com/markedjs/marked" target="_blank">Marked JS Library</a></li>
+                <li>Marked JS Library</li>
                 <li>GitHub Pages for deployment</li>
             </ul>
         </section>
@@ -141,9 +61,24 @@
     <script src="script.js" defer></script>
     <script>
         let myBtn = document.getElementById("scrBtn");
+        let footer = document.getElementById("footer-placeholder");
 
         window.onscroll = function () {
-            myBtn.style.display = document.documentElement.scrollTop > 20 ? "block" : "none";
+            let footerRect = footer.getBoundingClientRect();
+            let windowHeight = window.innerHeight;
+            let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            let documentHeight = document.documentElement.scrollHeight;
+            
+            // Calculate when we're near the footer
+            let bottomOfWindow = scrollPosition + windowHeight;
+            let footerTop = documentHeight - footer.offsetHeight;
+            
+            // Show button only when we're not at the footer and scrolled past 20px
+            if (scrollPosition > 20 && bottomOfWindow < footerTop) {
+                myBtn.style.display = "block";
+            } else {
+                myBtn.style.display = "none";
+            }
         };
 
         function topFunction() {

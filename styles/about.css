@@ -1,138 +1,189 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--primary-color) !important; /* Use theme variable with !important */
-  color: var(--text-color) !important; /* Use theme variable with !important */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: var(--background-color) !important; /* Use theme variable with !important */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: var(--input-sec-bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid var(--header-background);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 h1 {
-  text-align: center;
-  color: var(--text-color) !important; /* Use theme variable with !important */
+    color: var(--text-color);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--button-background);
+    padding-bottom: 0.5rem;
 }
 
 section {
-  margin: 1.5rem 0;
+    margin-bottom: 30px;
+    padding: 20px 25px;
+    background: var(--background-color);
+    border-radius: 10px;
+    border: 1px solid var(--header-background);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+p, ul li {
+    color: var(--text-color);
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+strong {
+    color: var(--button-background);
+    font-weight: 600;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+ul li {
+    margin: 0.8rem 0;
+    position: relative;
+}
+
+ul li::before {
+    content: "•";
+    color: var(--button-background);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }
 
 a {
-  color: var(--button-color) !important; /* Use theme variable with !important */
-  text-decoration: none;
+    color: var(--button-background);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
 }
 
 a:hover {
-  text-decoration: underline;
+    opacity: 0.8;
+    text-decoration: underline;
 }
 
 label {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 input[type="file"] {
-  display: block;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  background: var(--btn-color) !important; /* Use theme variable with !important */
-  color: var(--button-color) !important; /* Use theme variable with !important */
-  border: 1px solid #ddd;
-  border-radius: 25px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
+    display: block;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: var(--btn-color) !important; /* Use theme variable with !important */
+    color: var(--button-color) !important; /* Use theme variable with !important */
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 input[type="file"]:hover {
-  background: #005bb5;
+    background: #005bb5;
 }
 
 #preview {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 #preview h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 #content {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  border-radius: 8px;
-  background: var(--textarea-markdown) !important; /* Use theme variable with !important */
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--textarea-markdown) !important; /* Use theme variable with !important */
 }
 
 #scrBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background: var(--btn-color) !important; /* Use theme variable with !important */
-  color: var(--button-color) !important; /* Use theme variable with !important */
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 25%;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.3s, background-color 0.3s;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    transition: all 0.3s ease;
 }
 
 #scrBtn:hover {
-  background-color: #0073e6;
-  opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  main {
-    margin: 1rem;
-    padding: 1rem;
-    box-shadow: none;
-  }
-  #preview {
-    margin-top: 1rem;
-  }
-  #preview h2 {
-    font-size: 1.25rem;
-  }
-  #content {
-    padding: 0.5rem;
-  }
+    main {
+        margin: 1rem;
+        padding: 1rem;
+        box-shadow: none;
+    }
+    #preview {
+        margin-top: 1rem;
+    }
+    #preview h2 {
+        font-size: 1.25rem;
+    }
+    #content {
+        padding: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
-  main {
-    margin: 0.5rem;
-    padding: 0.5rem;
-  }
-  h1 {
-    font-size: 1.5rem;
-  }
-  label {
-    font-size: 0.875rem;
-  }
-  input[type="file"] {
-    font-size: 0.875rem;
-    padding: 0.5rem;
-  }
-  #preview h2 {
-    font-size: 1rem;
-  }
-  #scrBtn {
-    padding: 10px;
-    font-size: 14px;
-  }
+    main {
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    label {
+        font-size: 0.875rem;
+    }
+    input[type="file"] {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
+    #preview h2 {
+        font-size: 1rem;
+    }
+    #scrBtn {
+        padding: 10px;
+        font-size: 14px;
+    }
 }

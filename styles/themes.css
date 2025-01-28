@@ -153,14 +153,33 @@ body.theme-light {
 /* Base Dark Theme */
 body.theme-dark {
   --background-color: #1e1e1e;
-  --input-sec-bg: #5b5b5b65;
-  --text-color: #ffffff;
+  --input-sec-bg: #2d2d2d;
+  --text-color: #e0e0e0;
   --header-background: #333333;
   --header-color: #ffffff;
   --footer-background: #333333;
   --footer-color: #ffffff;
-  --button-background: #444;
-  --button-color: #3f3f3f;
+  --button-background: #4a9eff;
+  --button-color: #ffffff;
+  --section-border: #444444;
+  --highlight-color: #4a9eff;
+}
+
+.theme-dark main {
+  background: rgba(45, 45, 45, 0.95);
+}
+
+.theme-dark section {
+  border-color: var(--section-border);
+  background: rgba(35, 35, 35, 0.7);
+}
+
+.theme-dark h2 {
+  border-color: var(--highlight-color);
+}
+
+.theme-dark strong {
+  color: var(--highlight-color);
 }
 
 /* Solarized Theme */
