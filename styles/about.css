@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
@@ -6,6 +7,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 main {

@@ -69,8 +69,8 @@ textarea, #preview {
 .primary-button {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: black;
-  color: white;
+  background-color: var(--button-color);
+  color: var(--text-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -80,7 +80,7 @@ textarea, #preview {
 }
 
 .primary-button:hover {
-  background-color: #004a99;
+  background-color: var(--highlight-color);
 }
 
 hr {

@@ -1,5 +1,6 @@
 <div class="navbar">
-    <a href="index.html"><img src="logo1.png" alt="img" class="logo"></a>
+    <a href="index.html">
+        <img src="logo1.png" alt="img" class="logo"></a>
     <button class="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -11,16 +12,11 @@
             <a href="about.html">About</a>
             <a href="file_upload.html">Upload File</a>
         </nav>
-        <select id="theme-selector">
-            <option value="light">🌞 Light</option>
-            <option value="dark">🌙 Dark</option>
-            <option value="solarized">🌅 Solarized</option>
-            <option value="sunset">🌇 Sunset</option>
-            <option value="ocean">🌊 Ocean</option>
-            <option value="blossom">🌸 Blossom</option>
-            <option value="ember">🔥 Ember</option>
-            <option value="magic">🌃 Magic</option>
-        </select>
+        <!-- Toggle switch for theme -->
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round"></span>
+        </label>
     </div>
 </div>
 <script src="script.js" defer></script>
