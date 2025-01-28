@@ -1,3 +1,5 @@
+/* themes.css */
+
 /* Base Light Theme */
 body.theme-light {
   --background-color: #ffffff;
@@ -27,7 +29,6 @@ body.theme-dark {
   --section-border: #444444;
   --highlight-color: #406896;
 }
-
 
 /* Apply the variables to elements */
 body {

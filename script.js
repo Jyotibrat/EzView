@@ -23,6 +23,9 @@ function initializeApp() {
       localStorage.setItem('theme', theme);
     });
   }
+
+  // Hide the "Upload File" link if on the About page
+  adjustPageSpecificContent();
 }
 
 function applyTheme(theme) {
@@ -64,8 +67,22 @@ function loadNavbar() {
           document.querySelector('.header-actions')?.classList.remove('active');
         }
       });
+
+      // Call adjustPageSpecificContent again after navbar is loaded
+      adjustPageSpecificContent();
     })
     .catch(error => console.error('Error loading navbar:', error));
+}
+
+function adjustPageSpecificContent() {
+  // Hide the "Upload File" link if on the About page
+  const currentPage = window.location.pathname.split('/').pop();
+  if (currentPage === 'about.html') {
+    const uploadLink = document.getElementById('upload-link');
+    if (uploadLink) {
+      uploadLink.style.display = 'none';
+    }
+  }
 }
 
 // Load the footer dynamically
