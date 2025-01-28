@@ -17,7 +17,7 @@ This directory contains all CSS stylesheets for the project.
 
 Each CSS file serves a specific purpose:
 
-- **base.css**: Contains reset rules and fundamental styles
+- **base.css**: Contains reset rules and fundamental styles for the Home page (index.html)
 - **components.css**: Defines styles for shared UI components
 - **themes.css**: Manages theme variables and color schemes
 - **about.css**: Specific styles for about page layout

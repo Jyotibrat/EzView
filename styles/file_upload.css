@@ -1,145 +1,286 @@
 /* Reset default styles for consistency */
-body, h1, h2, p, button, select, textarea, div {
+body, h1, h2, p, button, select, textarea, div, ul, li, a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--primary-color); /* Use theme variable */
-  color: var(--text-color); /* Use theme variable */
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--header-background);
+  color: var(--header-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--header-color);
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(button-background);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  color: var(--text-color);
+}
+
+
+.hero-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 0.75rem 2rem;
+  background: var(--button-color);
+  color: var(--text-color); 
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background: var(--button-background);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 main {
   max-width: 800px;
   margin: 2rem auto;
-  padding: 1rem;
-  background: var(--background-color); /* Use theme variable */
-  border-radius: 8px;
+  padding: 1.5rem;
+  background: var(--background-color);
+  border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  text-align: center;
-  color: var(--text-color); /* Use theme variable */
+.about-section, .upload-container, .preview-container {
+  margin: 2rem 0;
 }
 
-section {
-  margin: 1.5rem 0;
-}
-
-a {
-  color: var(--btn-color); /* Use theme variable */
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-label {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  display: block;
-  color: var(--text-color);
-}
-
-input[type="file"] {
-  display: block;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  background: var(--btn-color); /* Use theme variable */
-  color: var(--button-color); /* Use theme variable */
-  border: 1px solid #ddd;
-  border-radius: 25px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-input[type="file"]:hover {
-  background: #005bb5;
-}
-
-#preview {
-  margin-top: 2rem;
-  background: var(--background-color);
-}
-
-#preview h2 {
+.about-section h2, .preview-container h2 {
+  font-size: 1.75rem;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+}
+
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary-color);
+}
+
+.upload-container {
+  text-align: center;
+}
+
+.upload-box {
+  border: 2px dashed #4facfe;
+  padding: 2rem;
+  border-radius: 12px;
+  background:hsl(from color h s l)(header-background);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.upload-box:hover {
+  background: #a6fdd672;
+  transform: scale(1.02);
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.file-label::after {
+  content: "Click to select a file";
+  font-size: 0.9rem;
   color: var(--text-color);
 }
 
-#content {
+.preview-container {
+  padding: 1.5rem;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.preview-content {
   border: 1px solid #ddd;
   padding: 1rem;
   border-radius: 8px;
-  background: var(--textarea-markdown); /* Use theme variable */
+  background: var(--background-color);
+  font-family: 'Roboto', monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-height: 400px;
+  overflow-y: auto;
+  word-wrap: break-word;
+  color: var(--text-color);
 }
 
 #scrBtn {
-  display: none; 
-  position: fixed; 
+  display: none;
+  position: fixed;
   bottom: 20px;
-  right: 20px; 
-  z-index: 99; 
-  border: none; 
-  outline: none; 
-  color: var(--button-color); /* Use theme variable */
-  cursor: pointer; 
-  padding: 15px; 
-  border-radius: 25%; 
-  font-size: 16px; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-  transition: opacity 0.3s, background-color 0.3s; 
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  color: var(--button-color);
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: var(--button-background);
+  transition: transform 0.2s ease, opacity 0.3s;
 }
 
 #scrBtn:hover {
-  background-color: #0073e6; 
-  opacity: 0.9; 
+  background-color: #0073e6;
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+
+#scrBtn:active {
+  transform: scale(0.95);
+}
+
+.footer {
+  background-color: var(--footer-background);
+  color: var(--footer-color);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+  margin: 0;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+  }
+
+  .hero-section h2 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
   main {
     margin: 1rem;
     padding: 1rem;
     box-shadow: none;
   }
-  #preview {
-    margin-top: 1rem;
+
+  .preview-container h2 {
+    font-size: 1.5rem;
   }
-  #preview h2 {
-    font-size: 1.25rem;
-  }
-  #content {
+
+  .preview-content {
     padding: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .hero-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 0.875rem;
+  }
+
+  .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+
   main {
     margin: 0.5rem;
     padding: 0.5rem;
   }
-  h1 {
-    font-size: 1.5rem;
-  }
-  label {
+
+  .file-label {
     font-size: 0.875rem;
   }
-  input[type="file"] {
+
+  .file-input {
     font-size: 0.875rem;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
   }
-  #preview h2 {
-    font-size: 1rem;
+
+  .preview-container h2 {
+    font-size: 1.25rem;
   }
+
   #scrBtn {
     padding: 10px;
     font-size: 14px;

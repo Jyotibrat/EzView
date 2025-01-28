@@ -10,24 +10,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder">
+        <nav class="navbar">
+            <h1>Markdown Previewer</h1>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#preview">Preview</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header class="hero-section">
+        <h2>Convert your Markdown files to beautiful HTML previews</h2>
+        <p>Upload, view, and download your Markdown files in an easy and efficient way.</p>
+        <a href="#upload" class="cta-button">Get Started</a>
+    </header>
 
     <main>
-        <section>
-            <label for="file">Upload Markdown File:</label>
-            <input type="file" id="file" name="file" accept=".md" required>
+        <section id="about" class="about-section">
+            <h2>About Markdown</h2>
+            <p>Markdown is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.</p>
         </section>
 
-        <section id="preview">
-            <h2>Preview</h2>
-            <div id="content"></div>
+        <section id="upload" class="upload-container">
+            <div class="upload-box">
+                <label for="file" class="file-label">
+                    Drag & drop your Markdown file here, or click to upload
+                    <input type="file" id="file" name="file" accept=".md" class="file-input" required>
+                </label>
+            </div>
+        </section>
+
+        <section id="preview" class="preview-container">
+            <h2>Live Markdown Preview</h2>
+            <div id="content" class="preview-content">
+                <p>Your preview will appear here once you upload a file.</p>
+            </div>
         </section>
     </main>
 
-    <button onclick="topFunction()" id="scrBtn" title="Go to top">Top</button> 
+    <button onclick="topFunction()" id="scrBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button> 
 
-    <div id="footer-placeholder"></div>
+    <div id="footer-placeholder">
+        <footer class="footer">
+            <p>&copy; 2025 Markdown Previewer | Created by Amaan27-Buzz</p>
+        </footer>
+    </div>
 
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="script.js"></script>
