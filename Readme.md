@@ -15,6 +15,8 @@ This directory contains all main source files of the project.
 
 ### JavaScript Files :
 - **script.js**: Core application logic, handling markdown conversion and UI interactions
+- **file_upload.js**: JavaScript logic for file upload functionality.
+
 
 ### Styles Directory :
 - Contains all CSS files for styling the application

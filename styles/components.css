@@ -150,6 +150,111 @@ nav a:hover {
   transition: all 0.3s ease;
 }
 
+/* Export Button Styles */
+.preview-section {
+  position: relative;
+  overflow: visible !important; /* Force overflow visible */
+}
+
+.preview-section .download-dropdown {
+  margin-top: 20px;
+}
+
+#export-btn {
+  width: 100%;
+  justify-content: center;
+  background-color: var(--button-background);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--button-color);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#export-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#export-btn .dropdown-icon {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.preview-section .download-content {
+  width: 100%;
+}
+
+/* Download Dropdown Styles */
+.download-dropdown {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.download-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color);
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999; /* Increased z-index */
+  margin-top: 5px;
+  overflow: visible; /* Changed from hidden to visible */
+  padding: 5px 0;
+}
+
+/* Modified hover states to fix the disappearing issue */
+.download-dropdown:hover .download-content,
+.download-content:hover {
+  display: block;
+}
+
+.download-content button {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  position: relative; /* Added position relative */
+  z-index: 10000; /* Even higher z-index */
+}
+
+.download-content button:hover {
+  background-color: var(--button-background);
+  color: var(--button-color);
+}
+
+/* Add a small gap to prevent accidental mouseout */
+.download-content::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+
+.download-dropdown:hover .download-content {
+  display: block;
+}
+
 /* Toggle Switch Styles */
 .switch {
   position: relative;
@@ -196,6 +301,44 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* Button styles for light theme */
+.theme-light .primary-button,
+.theme-light #show-preview,
+.theme-light #export-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.theme-light .primary-button:hover,
+.theme-light #show-preview:hover,
+.theme-light #export-btn:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+/* Ensure dropdown content buttons match the style */
+.theme-light .download-content button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.theme-light .download-content button:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+/* Ensure responsive styles maintain the same colors */
+@media (max-width: 768px) {
+  .theme-light .primary-button,
+  .theme-light #show-preview,
+  .theme-light #export-btn,
+  .theme-light .download-content button {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -306,6 +449,20 @@ input:checked + .slider:before {
   }
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
+  }
+  .preview-section .download-dropdown {
+    margin-top: 15px;
+  }
+  
+  #export-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .preview-section .download-content {
+    width: 100%;
+    position: absolute;
+    left: 0;
   }
 }
 

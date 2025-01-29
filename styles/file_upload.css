@@ -286,3 +286,43 @@ main {
     font-size: 14px;
   }
 }
+
+/* Styles for the export buttons */
+.download-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.download-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background-color);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.download-dropdown:hover .download-content {
+    display: block;
+}
+
+.download-content button {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.download-content button:hover {
+    background-color: var(--button-hover-background);
+}
+
+.dropdown-icon {
+    margin-left: 5px;
+    font-size: 0.8em;
+}

@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="styles/components.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
 </head>
 <body>
   <div id="navbar-placeholder"></div>
@@ -36,13 +39,23 @@
     <div class="preview-section">
       <h2 style="color: var(--header-h2);">Preview</h2>
       <div id="preview" aria-live="polite"></div>
+      <div class="download-dropdown">
+        <button id="export-btn" class="primary-button" aria-label="Export">
+          Export
+          <span class="dropdown-icon">▼</span>
+        </button>
+        <div class="download-content">
+          <button id="download-html">Export as HTML</button>
+          <button id="download-pdf">Export as PDF</button>
+          <button id="download-md">Export as Markdown</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <div id="footer-placeholder"></div> <!-- Placeholder for thze footer -->
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="script.js" defer></script>
 </body>
 </html>

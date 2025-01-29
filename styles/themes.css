@@ -60,3 +60,39 @@ button {
   background-color: var(--button-background);
   color: var(--button-color);
 }
+
+/* Export button theme styles */
+.theme-dark #export-btn {
+  background-color: #4a9eff;
+  color: #ffffff;
+}
+
+.theme-solarized #export-btn {
+  background-color: #b58900;
+  color: #ffffff;
+}
+
+.theme-sunset #export-btn {
+  background-color: #ff6347;
+  color: #ffffff;
+}
+
+.theme-ocean #export-btn {
+  background-color: #00796b;
+  color: #ffffff;
+}
+
+.theme-blossom #export-btn {
+  background-color: #c2185b;
+  color: #ffffff;
+}
+
+.theme-ember #export-btn {
+  background-color: #c62828;
+  color: #ffffff;
+}
+
+.theme-magic #export-btn {
+  background-color: #512da8;
+  color: #ffffff;
+}

@@ -47,6 +47,16 @@
             <div id="content" class="preview-content">
                 <p>Your preview will appear here once you upload a file.</p>
             </div>
+            <div class="download-dropdown">
+                <button id="export-btn" class="primary-button" aria-label="Export">
+                    Export
+                    <span class="dropdown-icon">▼</span>
+                </button>
+                <div class="download-content">
+                    <button id="download-html">Export as HTML</button>
+                    <button id="download-pdf">Export as PDF</button>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -60,48 +70,9 @@
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        // Add event listener for file upload
-        const fileInput = document.getElementById('file');
-        const contentDiv = document.getElementById('content');
-
-        fileInput.addEventListener('change', (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    const markdown = reader.result;
-                    contentDiv.innerHTML = marked.parse(markdown);
-                };
-                reader.readAsText(file);
-            }
-        });
-
-        // Get the button and footer elements
-        let myBtn = document.getElementById("scrBtn");
-        let footer = document.getElementById("footer-placeholder");
-
-        // Show or hide the button based on scroll position and footer visibility
-        window.onscroll = function () {
-            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            const footerPosition = footer.offsetTop - window.innerHeight;
-
-            if (scrollPosition > 20 && scrollPosition < footerPosition) {
-                myBtn.style.display = "block";
-            } else {
-                myBtn.style.display = "none";
-            }
-        };
-
-        // Scroll to the top of the page smoothly
-        function topFunction() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
-        }
-    </script>
+    <script src="file_upload.js"></script>
 </body>
 </html>
