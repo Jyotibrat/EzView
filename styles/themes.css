@@ -1,16 +1,31 @@
 /* themes.css */
 
-/* Base Light Theme */
+/* Base Light Theme
 body.theme-light {
-  --background-color: #ffffff;
-  --input-sec-bg: #f4f4f4;
+  --background-color: #90d8ffa8;
+  --input-sec-bg: #def3ff6e;
   --text-color: #000000;
-  --header-background: #f1f1f1;
+  --header-background: #4cb4ffa9;
   --header-color: #333;
-  --footer-background: #f1f1f1;
+  --footer-background: #6ec5ff64;
   --footer-color: #333;
   --button-background: #e0e0e0;
   --button-color: #b6b6b672;
+  --section-border: #e4e4e4;
+  --highlight-color: #4f9cf5;
+}
+  */
+
+body.theme-light {
+  --background-color: #e6e6e68a;
+  --input-sec-bg: #e7e7e7aa;
+  --text-color: #006064;
+  --header-background: #27859dd4;
+  --header-color: #004d40;
+  --footer-background: #27859dd4;
+  --footer-color: #004d40;
+  --button-background: #31ffe7;
+  --button-color: #ffffff;
   --section-border: #e4e4e4;
   --highlight-color: #4f9cf5;
 }
@@ -24,10 +39,10 @@ body.theme-dark {
   --header-color: #ffffff;
   --footer-background: #333333;
   --footer-color: #ffffff;
-  --button-background: #4a9eff;
+  --button-background: #00244c;
   --button-color: #6b6b6b;
   --section-border: #444444;
-  --highlight-color: #406896;
+  --highlight-color: #0c315c;
 }
 
 /* Apply the variables to elements */

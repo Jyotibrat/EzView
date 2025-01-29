@@ -16,7 +16,7 @@ body {
 }
 
 .footer-content {
-    background-color: var(--header-background); /* Use theme variable */
+    background-color: var(--footer-background); /* Use theme variable */
     color: var(--header-color); /* Use theme variable */
     text-align: center;
     padding: 15px;
