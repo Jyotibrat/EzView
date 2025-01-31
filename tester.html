@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Previewer</title>
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/Html_Previewer.css">
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+
+        <!-- Fixed Position Pop Out Button -->
+    <button id="pop-out">↗️</button>
+
+    <!-- Font Size Control Buttons -->
+    <div class="font-size-control">
+        <button id="font-increase">+</button>
+        <button id="font-decrease">-</button>
+    </div>
+
+    <div id="split-container">
+        <!-- Code Editor -->
+        <div id="editor-container">
+            <textarea id="html-input" placeholder="Write HTML here..."></textarea>
+        </div>
+
+        <!-- Resizable Divider -->
+        <div id="divider"></div>
+
+        <!-- Live Preview Panel -->
+        <div id="preview-container">
+            <iframe id="live-preview"></iframe>
+        </div>
+    </div>
+
+    </main>
+
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    
+    <div id="footer-placeholder"></div>
+    <script src="Html_Previewer.js"></script>
+    <script src="script.js"></script>
+   
+</body>
+</html>
