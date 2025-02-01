@@ -1,0 +1,153 @@
+/* Dark Theme */
+body {
+    margin: 0;
+    font-family: 'Consolas', 'Courier New', monospace;
+    background: #1e1e1e;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Slim Header */
+#slim-header {
+    display: flex;
+    align-items: center;
+    background: #252526;
+    color: white;
+    height: 40px;
+    padding: 0 10px;
+    border-bottom: 1px solid #444;
+}
+
+#slim-header #home-icon {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+#slim-header h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Fixed Position Pop Out Button */
+#pop-out {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50px; /* Adjusted to account for the header */
+    right: 10px;
+    z-index: 1000;
+}
+
+/* Hover Effect */
+#pop-out:hover {
+    color: #007acc;
+}
+
+/* Font Size Control Buttons */
+.font-size-control {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    background: #3c3c3c;
+    border-radius: 5px;
+}
+
+.font-size-control button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.font-size-control button:hover {
+    color: #007acc;
+}
+
+/* Split Container */
+#split-container {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 40px); /* Adjusted to account for the header */
+}
+
+/* Editor Container */
+#editor-container, #preview-container {
+    flex: none;
+    overflow: hidden;
+    min-width: 200px;
+}
+
+#editor-container {
+    display: flex;
+    flex-direction: column;
+    background: #252526;
+    width: 50%;
+}
+
+/* Resizable Divider */
+#divider {
+    width: 10px;
+    cursor: ew-resize;
+    background-color: #3c3c3c;
+    flex-shrink: 0;
+}
+
+/* Text Editor */
+.CodeMirror {
+    height: 100%;
+    width: 100%;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-size: 14px;
+}
+
+.CodeMirror-gutters {
+    background: #252526;
+    border-right: 1px solid #444;
+}
+
+.CodeMirror-linenumber {
+    color: #888;
+}
+
+/* Preview Container */
+#preview-container {
+    flex-grow: 1;
+    background: #2d2d2d;
+}
+
+/* Ensure iframe fills the rest of the container */
+#live-preview {
+    width: 100%;
+    height: 100%; /* Full height since there's no header */
+    border: none;
+    background: white;
+}
+
+/* Preview Window */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
