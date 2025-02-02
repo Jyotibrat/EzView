@@ -13,11 +13,18 @@
     <div id="navbar-placeholder">
         <nav class="navbar">
             <h1>Markdown Previewer</h1>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#upload">Upload</a></li>
-                <li><a href="#preview">Preview</a></li>
-            </ul>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="header-actions">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#upload">Upload</a></li>
+                    <li><a href="#preview">Preview</a></li>
+                </ul>
+            </div>
         </nav>
     </div>
 
@@ -70,5 +77,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
     <script src="file_upload.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const headerActions = document.querySelector('.header-actions');
+            
+            if (hamburger && headerActions) { // Check if elements exist
+                // Function to close menu
+                function closeMenu() {
+                    headerActions.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+
+                // Toggle menu on hamburger click
+                hamburger.addEventListener('click', function() {
+                    headerActions.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (headerActions.classList.contains('active') && 
+                        !headerActions.contains(e.target) && 
+                        !hamburger.contains(e.target)) {
+                        closeMenu();
+                    }
+                });
+
+                // Close menu on window resize
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        closeMenu();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
