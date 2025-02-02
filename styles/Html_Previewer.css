@@ -33,8 +33,8 @@ body {
     margin: 0;
 }
 
-/* Fixed Position Pop Out Button */
-#pop-out {
+/* Fixed Position Pop Button */
+#pop-toggle {
     background: transparent;
     border: none;
     color: white;
@@ -44,14 +44,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 50px; /* Adjusted to account for the header */
-    right: 10px;
+    position: absolute;
+    top: 10px; /* Adjusted to position within preview container */
+    right: 10px; /* Adjusted to position within preview container */
     z-index: 1000;
 }
 
 /* Hover Effect */
-#pop-out:hover {
+#pop-toggle:hover {
     color: #007acc;
 }
 
@@ -83,6 +83,80 @@ body {
     color: #007acc;
 }
 
+/* Right Sidebar */
+#right-sidebar {
+    position: fixed;
+    top: 40px; /* Adjusted to account for the header */
+    right: 0;
+    width: 50px;
+    background: #252526;
+    height: calc(100% - 40px); /* Adjusted to account for the header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    border-left: 1px solid #444;
+    z-index: 1001; /* Ensuring it is above other elements */
+}
+
+.sidebar-button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+.sidebar-button:hover {
+    background: #007acc;
+}
+
+/* Toast */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1002;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+.toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+
+@-webkit-keyframes fadeout {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}
+
+@keyframes fadeout {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}
+
 /* Split Container */
 #split-container {
     display: flex;
@@ -95,6 +169,7 @@ body {
     flex: none;
     overflow: hidden;
     min-width: 200px;
+    position: relative; /* Added to position pop-out button */
 }
 
 #editor-container {
@@ -102,17 +177,41 @@ body {
     flex-direction: column;
     background: #252526;
     width: 50%;
+    height: 100%;
 }
 
-/* Resizable Divider */
-#divider {
-    width: 10px;
-    cursor: ew-resize;
-    background-color: #3c3c3c;
-    flex-shrink: 0;
+/* Editor Switcher */
+#editor-switcher {
+    display: flex;
+    background: #3c3c3c;
+    border-bottom: 1px solid #444;
+}
+
+#editor-switcher button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+#editor-switcher button:hover {
+    background: #007acc;
+}
+
+#editor-switcher button.active {
+    background: #1e1e1e;
 }
 
 /* Text Editor */
+.editor {
+    height: calc(100% - 40px);
+    display: none;
+}
+
 .CodeMirror {
     height: 100%;
     width: 100%;
@@ -130,10 +229,19 @@ body {
     color: #888;
 }
 
+/* Resizable Divider */
+#divider {
+    width: 10px;
+    cursor: ew-resize;
+    background-color: #3c3c3c;
+    flex-shrink: 0;
+}
+
 /* Preview Container */
 #preview-container {
     flex-grow: 1;
     background: #2d2d2d;
+    position: relative; /* Added to position pop-out button */
 }
 
 /* Ensure iframe fills the rest of the container */

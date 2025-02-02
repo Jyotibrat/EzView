@@ -19,8 +19,8 @@
         <h1>HTML Previewer</h1>
     </header>
 
-    <!-- Fixed Position Pop Out Button -->
-    <button id="pop-out">↗️</button>
+    <!-- Fixed Position Pop Button -->
+    <button id="pop-toggle">↗️</button>
 
     <!-- Font Size Control Buttons -->
     <div class="font-size-control">
@@ -28,10 +28,23 @@
         <button id="font-decrease">-</button>
     </div>
 
+    <!-- Right Sidebar -->
+    <div id="right-sidebar">
+        <button id="toggle-preview" class="sidebar-button" title="Toggle Preview">👁️</button>
+        <!-- Add more sidebar icons here later -->
+    </div>
+
     <div id="split-container">
         <!-- Code Editor -->
         <div id="editor-container">
-            <textarea id="html-input" placeholder="Write HTML here..."></textarea>
+            <div id="editor-switcher">
+                <button id="switch-html" class="active">HTML</button>
+                <button id="switch-css">CSS</button>
+                <button id="switch-js">JavaScript</button>
+            </div>
+            <textarea id="html-input" class="editor" placeholder="Write HTML here..."></textarea>
+            <textarea id="css-input" class="editor" placeholder="Write CSS here..." style="display: none;"></textarea>
+            <textarea id="js-input" class="editor" placeholder="Write JavaScript here..." style="display: none;"></textarea>
         </div>
 
         <!-- Resizable Divider -->
@@ -42,6 +55,9 @@
             <iframe id="live-preview"></iframe>
         </div>
     </div>
+
+    <!-- Toast Container -->
+    <div id="toast" class="toast"></div>
 
     <!-- CodeMirror JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
