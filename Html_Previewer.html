@@ -8,6 +8,10 @@
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/eclipse.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/material.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/neo.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./styles/Html_Previewer.css">
 </head>
@@ -31,7 +35,7 @@
     <!-- Right Sidebar -->
     <div id="right-sidebar">
         <button id="toggle-preview" class="sidebar-button" title="Toggle Preview">👁️</button>
-        <!-- Add more sidebar icons here later -->
+        <button id="theme-selector" class="sidebar-button" title="Select Theme">🎨</button>
     </div>
 
     <div id="split-container">
@@ -56,6 +60,29 @@
         </div>
     </div>
 
+    <!-- Theme Selector Modal -->
+    <div id="theme-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select Theme</h2>
+            <label for="ui-theme">UI Theme:</label>
+            <select id="ui-theme">
+                <option value="light">Light</option>
+                <option value="dark" selected>Dark</option>
+            </select>
+            <label for="syntax-theme">Syntax Theme:</label>
+            <select id="syntax-theme">
+                <option value="default">Default</option>
+                <option value="dracula" selected>Dracula</option>
+                <option value="eclipse">Eclipse</option>
+                <option value="monokai">Monokai</option>
+                <option value="material">Material</option>
+                <option value="neo">Neo</option>
+            </select>
+            <button id="apply-theme">Apply</button>
+        </div>
+    </div>
+
     <!-- Toast Container -->
     <div id="toast" class="toast"></div>
 
@@ -65,10 +92,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closetag.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/matchbrackets.min.js"></script>
 
     <!-- Custom JS -->
     <script src="./Html_Previewer.js"></script>
-
 </body>
 
 </html>

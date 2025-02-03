@@ -10,6 +10,16 @@ body {
     overflow: hidden;
 }
 
+body.dark-theme {
+    background: #1e1e1e;
+    color: #ccc;
+}
+
+body.light-theme {
+    background: #f4f4f4;
+    color: #333;
+}
+
 /* Slim Header */
 #slim-header {
     display: flex;
@@ -21,11 +31,20 @@ body {
     border-bottom: 1px solid #444;
 }
 
+body.light-theme #slim-header {
+    background: #e0e0e0;
+    color: #333;
+}
+
 #slim-header #home-icon {
     text-decoration: none;
     color: white;
     font-size: 24px;
     margin-right: 10px;
+}
+
+body.light-theme #slim-header #home-icon {
+    color: #333;
 }
 
 #slim-header h1 {
@@ -50,7 +69,6 @@ body {
     z-index: 1000;
 }
 
-/* Hover Effect */
 #pop-toggle:hover {
     color: #007acc;
 }
@@ -67,6 +85,10 @@ body {
     border-radius: 5px;
 }
 
+body.light-theme .font-size-control {
+    background: #d0d0d0;
+}
+
 .font-size-control button {
     background: transparent;
     border: none;
@@ -77,6 +99,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+body.light-theme .font-size-control button {
+    color: #333;
 }
 
 .font-size-control button:hover {
@@ -99,6 +125,10 @@ body {
     z-index: 1001; /* Ensuring it is above other elements */
 }
 
+body.light-theme #right-sidebar {
+    background: #e0e0e0;
+}
+
 .sidebar-button {
     background: transparent;
     border: none;
@@ -108,6 +138,10 @@ body {
     padding: 10px;
     margin-bottom: 10px;
     transition: background 0.3s;
+}
+
+body.light-theme .sidebar-button {
+    color: #333;
 }
 
 .sidebar-button:hover {
@@ -160,7 +194,7 @@ body {
 /* Split Container */
 #split-container {
     display: flex;
-    width: 100%;
+    width: calc(100% - 50px); /* Adjusted to not overlap with sidebar */
     height: calc(100% - 40px); /* Adjusted to account for the header */
 }
 
@@ -180,11 +214,19 @@ body {
     height: 100%;
 }
 
+body.light-theme #editor-container {
+    background: #fff;
+}
+
 /* Editor Switcher */
 #editor-switcher {
     display: flex;
     background: #3c3c3c;
     border-bottom: 1px solid #444;
+}
+
+body.light-theme #editor-switcher {
+    background: #d0d0d0;
 }
 
 #editor-switcher button {
@@ -198,12 +240,20 @@ body {
     transition: background 0.3s;
 }
 
+body.light-theme #editor-switcher button {
+    color: #333;
+}
+
 #editor-switcher button:hover {
     background: #007acc;
 }
 
 #editor-switcher button.active {
     background: #1e1e1e;
+}
+
+body.light-theme #editor-switcher button.active {
+    background: #ccc;
 }
 
 /* Text Editor */
@@ -220,12 +270,26 @@ body {
     font-size: 14px;
 }
 
+body.light-theme .CodeMirror {
+    background: #fff;
+    color: #000;
+}
+
 .CodeMirror-gutters {
     background: #252526;
     border-right: 1px solid #444;
 }
 
+body.light-theme .CodeMirror-gutters {
+    background: #eee;
+    border-right: 1px solid #ccc;
+}
+
 .CodeMirror-linenumber {
+    color: #888;
+}
+
+body.light-theme .CodeMirror-linenumber {
     color: #888;
 }
 
@@ -237,11 +301,19 @@ body {
     flex-shrink: 0;
 }
 
+body.light-theme #divider {
+    background-color: #ccc;
+}
+
 /* Preview Container */
 #preview-container {
     flex-grow: 1;
     background: #2d2d2d;
     position: relative; /* Added to position pop-out button */
+}
+
+body.light-theme #preview-container {
+    background: #fff;
 }
 
 /* Ensure iframe fills the rest of the container */
@@ -250,6 +322,42 @@ body {
     height: 100%; /* Full height since there's no header */
     border: none;
     background: white;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1003;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Preview Window */

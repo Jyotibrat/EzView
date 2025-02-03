@@ -8,6 +8,12 @@ const fontDecreaseButton = document.getElementById('font-decrease');
 const editorContainer = document.getElementById('editor-container');
 const previewContainer = document.getElementById('preview-container');
 const togglePreviewButton = document.getElementById('toggle-preview');
+const themeSelectorButton = document.getElementById('theme-selector');
+const themeModal = document.getElementById('theme-modal');
+const closeModal = document.querySelector('.close');
+const applyThemeButton = document.getElementById('apply-theme');
+const uiThemeSelect = document.getElementById('ui-theme');
+const syntaxThemeSelect = document.getElementById('syntax-theme');
 const toast = document.getElementById('toast');
 let popOutWindow = null;
 let isDragging = false;
@@ -224,3 +230,40 @@ togglePreviewButton.addEventListener('click', () => {
         editorContainer.style.width = '100%';
     }
 });
+
+// Theme Selector Functionality
+themeSelectorButton.addEventListener('click', () => {
+    themeModal.style.display = "block";
+});
+
+closeModal.addEventListener('click', () => {
+    themeModal.style.display = "none";
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === themeModal) {
+        themeModal.style.display = "none";
+    }
+});
+
+applyThemeButton.addEventListener('click', () => {
+    const uiTheme = uiThemeSelect.value;
+    const syntaxTheme = syntaxThemeSelect.value;
+
+    if (uiTheme === 'light') {
+        document.body.classList.remove('dark-theme');
+        document.body.classList.add('light-theme');
+    } else if (uiTheme === 'dark') {
+        document.body.classList.remove('light-theme');
+        document.body.classList.add('dark-theme');
+    }
+
+    switchSyntaxTheme(syntaxTheme);
+    themeModal.style.display = "none";
+});
+
+function switchSyntaxTheme(theme) {
+    editors.forEach(editor => {
+        editor.setOption("theme", theme);
+    });
+}
