@@ -5,6 +5,7 @@
   border-radius: 50%;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   filter: brightness(1);
+  margin: -10% !important;
 }
 
 .logo:hover {
@@ -14,8 +15,15 @@
 }
 
 /* Component-Specific Styles */
-.input-section:focus-within, .preview-section:hover {
+
+.input-section, .preview-section {
+  background: var(--input-section);
+  border: 2px solid #000;
+}
+
+.input-section:hover, .preview-section:hover {
   transform: scale(1.02);
+  border: none;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -115,7 +123,7 @@
 }
 
 nav a {
-  color: var(--text-color);
+  color: var(--nav-text);
   text-decoration: none;
   margin: 5px;
   font-size: 17px;

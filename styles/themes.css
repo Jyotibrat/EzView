@@ -17,6 +17,9 @@ body.theme-light {
   */
 
 body.theme-light {
+  --nav-text: white;
+  --input-section: rgb(247, 242, 234);
+  --hr-color: #000000;
   --background-color: #e6e6e68a;
   --input-sec-bg: #e7e7e7aa;
   --text-color: #006064;
@@ -32,6 +35,9 @@ body.theme-light {
 
 /* Base Dark Theme */
 body.theme-dark {
+  --nav-text: #ffffff;
+  --input-section: #2d2d2d;
+  --hr-color: #ccc;
   --background-color: #1e1e1e;
   --input-sec-bg: #2d2d2d;
   --text-color: #e0e0e0;

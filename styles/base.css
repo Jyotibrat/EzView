@@ -59,7 +59,7 @@ textarea, #preview {
   font-family: 'Roboto Mono', monospace;
   font-size: 15px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--hr-color);
   border-radius: 5px;
   background-color: var(--textarea-markdown);
   color: var(--text-color);
@@ -85,7 +85,7 @@ textarea, #preview {
 
 hr {
   border: none;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--hr-color);
   margin: 10px 0;
 }
 
