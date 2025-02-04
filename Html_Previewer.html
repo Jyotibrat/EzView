@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/monokai.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/material.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/neo.min.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./styles/Html_Previewer.css">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -23,32 +25,42 @@
 <body>
     <!-- Slim Header with Home Icon -->
     <header id="slim-header">
-        <a href="index.html" id="home-icon">🏠</a>
-        <h1>HTML Previewer</h1>
+        <a href="index.html" id="home-icon" title="Go to Home">🏠</a>
+        <h1 title="HTML Previewer">HTML Previewer</h1>
+        <div id="top-bar-controls">
+            <label for="theme-selector-dropdown" title="Select Editor Theme">Theme:</label>
+            <select id="theme-selector-dropdown" title="Select Editor Theme">
+                <option value="default">Default</option>
+                <option value="dracula">Dracula</option>
+                <option value="eclipse">Eclipse</option>
+                <option value="monokai">Monokai</option>
+                <option value="material">Material</option>
+                <option value="neo">Neo</option>
+            </select>
+            <label for="dark-mode-toggle" title="Toggle Dark Mode">Dark Mode:</label>
+            <i id="dark-mode-toggle" class="fas fa-moon" title="Toggle Dark Mode"></i>
+        </div>
     </header>
 
-    <!-- Fixed Position Pop Button -->
-    <button id="pop-toggle">↗️</button>
-
     <!-- Font Size Control Buttons -->
-    <div class="font-size-control">
-        <button id="font-increase">+</button>
-        <button id="font-decrease">-</button>
+    <div class="font-size-control" title="Control Font Size">
+        <button id="font-increase" title="Increase Font Size">+</button>
+        <button id="font-decrease" title="Decrease Font Size">-</button>
     </div>
 
     <!-- Right Sidebar -->
     <div id="right-sidebar">
         <button id="toggle-preview" class="sidebar-button" title="Toggle Preview">👁️</button>
-        <button id="theme-selector" class="sidebar-button" title="Select Theme">🎨</button>
+        <button id="pop-toggle" class="sidebar-button" title="Pop-out Preview">↗️</button>
     </div>
 
     <div id="split-container">
         <!-- Code Editor -->
         <div id="editor-container">
-            <div id="editor-switcher">
-                <button id="switch-html" class="active">HTML</button>
-                <button id="switch-css">CSS</button>
-                <button id="switch-js">JavaScript</button>
+            <div id="editor-switcher" title="Switch Editors">
+                <button id="switch-html" class="active" title="Switch to HTML Editor">HTML</button>
+                <button id="switch-css" title="Switch to CSS Editor">CSS</button>
+                <button id="switch-js" title="Switch to JavaScript Editor">JavaScript</button>
             </div>
             <textarea id="html-input" class="editor" placeholder="Write HTML here..."></textarea>
             <textarea id="css-input" class="editor" placeholder="Write CSS here..." style="display: none;"></textarea>
@@ -56,34 +68,11 @@
         </div>
 
         <!-- Resizable Divider -->
-        <div id="divider"></div>
+        <div id="divider" title="Drag to Resize"></div>
 
         <!-- Live Preview Panel -->
         <div id="preview-container">
             <iframe id="live-preview"></iframe>
-        </div>
-    </div>
-
-    <!-- Theme Selector Modal -->
-    <div id="theme-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Select Theme</h2>
-            <label for="ui-theme">UI Theme:</label>
-            <select id="ui-theme">
-                <option value="light">Light</option>
-                <option value="dark" selected>Dark</option>
-            </select>
-            <label for="syntax-theme">Syntax Theme:</label>
-            <select id="syntax-theme">
-                <option value="default">Default</option>
-                <option value="dracula" selected>Dracula</option>
-                <option value="eclipse">Eclipse</option>
-                <option value="monokai">Monokai</option>
-                <option value="material">Material</option>
-                <option value="neo">Neo</option>
-            </select>
-            <button id="apply-theme">Apply</button>
         </div>
     </div>
 

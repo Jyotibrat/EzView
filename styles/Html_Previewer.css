@@ -29,6 +29,8 @@ body.light-theme {
     height: 40px;
     padding: 0 10px;
     border-bottom: 1px solid #444;
+    position: relative;
+    z-index: 2; /* Ensure the header is above other elements with lower z-index */
 }
 
 body.light-theme #slim-header {
@@ -52,24 +54,41 @@ body.light-theme #slim-header #home-icon {
     margin: 0;
 }
 
-/* Fixed Position Pop Button */
-#pop-toggle {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 4px;
+/* Top Bar Controls */
+#top-bar-controls {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 10px; /* Adjusted to position within preview container */
-    right: 10px; /* Adjusted to position within preview container */
-    z-index: 1000;
+    margin-left: auto;
+    z-index: 2; /* Ensure top bar controls are above other elements */
 }
 
-#pop-toggle:hover {
+#top-bar-controls label {
+    margin: 0 5px;
+    color: white;
+}
+
+#top-bar-controls select {
+    margin: 0 10px;
+}
+
+body.light-theme #top-bar-controls label {
+    color: #333;
+}
+
+body.light-theme #top-bar-controls select {
+    color: #333;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+/* Dark Mode Toggle */
+#dark-mode-toggle {
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+#dark-mode-toggle:hover {
     color: #007acc;
 }
 
@@ -111,7 +130,7 @@ body.light-theme .font-size-control button {
 
 /* Right Sidebar */
 #right-sidebar {
-    position: fixed;
+    position: absolute; /* Changed from fixed to absolute */
     top: 40px; /* Adjusted to account for the header */
     right: 0;
     width: 50px;
@@ -122,7 +141,7 @@ body.light-theme .font-size-control button {
     align-items: center;
     padding-top: 10px;
     border-left: 1px solid #444;
-    z-index: 1001; /* Ensuring it is above other elements */
+    z-index: 3; /* Ensure it is above other elements */
 }
 
 body.light-theme #right-sidebar {
@@ -196,10 +215,11 @@ body.light-theme .sidebar-button {
     display: flex;
     width: calc(100% - 50px); /* Adjusted to not overlap with sidebar */
     height: calc(100% - 40px); /* Adjusted to account for the header */
+    margin-right: 50px; /* Ensure the sidebar is not overlapping */
 }
 
 /* Editor Container */
-#editor-container, #preview-container {
+#editor-container{
     flex: none;
     overflow: hidden;
     min-width: 200px;
@@ -320,50 +340,6 @@ body.light-theme #preview-container {
 #live-preview {
     width: 100%;
     height: 100%; /* Full height since there's no header */
-    border: none;
-    background: white;
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1003;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Preview Window */
-iframe {
-    width: 100%;
-    height: 100%;
     border: none;
     background: white;
 }

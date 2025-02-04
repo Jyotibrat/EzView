@@ -8,12 +8,8 @@ const fontDecreaseButton = document.getElementById('font-decrease');
 const editorContainer = document.getElementById('editor-container');
 const previewContainer = document.getElementById('preview-container');
 const togglePreviewButton = document.getElementById('toggle-preview');
-const themeSelectorButton = document.getElementById('theme-selector');
-const themeModal = document.getElementById('theme-modal');
-const closeModal = document.querySelector('.close');
-const applyThemeButton = document.getElementById('apply-theme');
-const uiThemeSelect = document.getElementById('ui-theme');
-const syntaxThemeSelect = document.getElementById('syntax-theme');
+const themeSelectorDropdown = document.getElementById('theme-selector-dropdown');
+const darkModeToggle = document.getElementById('dark-mode-toggle');
 const toast = document.getElementById('toast');
 let popOutWindow = null;
 let isDragging = false;
@@ -231,35 +227,24 @@ togglePreviewButton.addEventListener('click', () => {
     }
 });
 
-// Theme Selector Functionality
-themeSelectorButton.addEventListener('click', () => {
-    themeModal.style.display = "block";
+// Theme Selector Dropdown Functionality
+themeSelectorDropdown.addEventListener('change', (event) => {
+    switchSyntaxTheme(event.target.value);
 });
 
-closeModal.addEventListener('click', () => {
-    themeModal.style.display = "none";
-});
-
-window.addEventListener('click', (event) => {
-    if (event.target === themeModal) {
-        themeModal.style.display = "none";
-    }
-});
-
-applyThemeButton.addEventListener('click', () => {
-    const uiTheme = uiThemeSelect.value;
-    const syntaxTheme = syntaxThemeSelect.value;
-
-    if (uiTheme === 'light') {
+// Dark Mode Toggle Functionality
+darkModeToggle.addEventListener('click', () => {
+    if (document.body.classList.contains('dark-theme')) {
         document.body.classList.remove('dark-theme');
         document.body.classList.add('light-theme');
-    } else if (uiTheme === 'dark') {
+        darkModeToggle.classList.remove('fa-sun');
+        darkModeToggle.classList.add('fa-moon');
+    } else {
         document.body.classList.remove('light-theme');
         document.body.classList.add('dark-theme');
+        darkModeToggle.classList.remove('fa-moon');
+        darkModeToggle.classList.add('fa-sun');
     }
-
-    switchSyntaxTheme(syntaxTheme);
-    themeModal.style.display = "none";
 });
 
 function switchSyntaxTheme(theme) {
@@ -267,3 +252,6 @@ function switchSyntaxTheme(theme) {
         editor.setOption("theme", theme);
     });
 }
+
+// Initial Preview Update
+updatePreview(livePreview, htmlEditor.getValue(), cssEditor.getValue(), jsEditor.getValue());
