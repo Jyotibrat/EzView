@@ -11,20 +11,23 @@ function initializeApp() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        // Set the initial state of the toggle based on the saved theme
-        themeToggle.checked = savedTheme === 'dark';
+    // Initialize both theme toggles
+    const themeToggles = document.querySelectorAll('#theme-toggle-mobile, #theme-toggle-desktop');
+    themeToggles.forEach(toggle => {
+        if (toggle) {
+            updateThemeIcon(savedTheme, toggle);
+            toggle.addEventListener('click', () => {
+                const currentTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+                applyTheme(currentTheme);
+                localStorage.setItem('theme', currentTheme);
+                // Update all toggles
+                document.querySelectorAll('#theme-toggle-mobile, #theme-toggle-desktop').forEach(t => {
+                    updateThemeIcon(currentTheme, t);
+                });
+            });
+        }
+    });
 
-        // Add event listener to toggle switch
-        themeToggle.addEventListener('change', (e) => {
-            const theme = e.target.checked ? 'dark' : 'light';
-            applyTheme(theme);
-            localStorage.setItem('theme', theme);
-        });
-    }
-
-    // Hide the "Upload File" link if on the About page
     adjustPageSpecificContent();
 }
 
@@ -34,6 +37,13 @@ function applyTheme(theme) {
     console.log('Applied theme:', theme);
 }
 
+function updateThemeIcon(theme, toggle) {
+    const icon = toggle.querySelector('i');
+    if (icon) {
+        icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+}
+
 // Load the navbar dynamically
 function loadNavbar() {
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
@@ -41,34 +51,45 @@ function loadNavbar() {
         .then(response => response.text())
         .then(data => {
             navbarPlaceholder.innerHTML = data;
-            const themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-                const savedTheme = localStorage.getItem('theme') || 'light';
-                themeToggle.checked = savedTheme === 'dark';
-                themeToggle.addEventListener('change', (e) => {
-                    const theme = e.target.checked ? 'dark' : 'light';
-                    applyTheme(theme);
-                    localStorage.setItem('theme', theme);
-                });
-            }
-            // Add Sidebar Navigation Handler after navbar is loaded
+            
+            // Initialize theme toggles after navbar is loaded
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.querySelectorAll('#theme-toggle-mobile, #theme-toggle-desktop').forEach(toggle => {
+                if (toggle) {
+                    updateThemeIcon(savedTheme, toggle);
+                    toggle.addEventListener('click', () => {
+                        const currentTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+                        applyTheme(currentTheme);
+                        localStorage.setItem('theme', currentTheme);
+                        // Update all toggles
+                        document.querySelectorAll('#theme-toggle-mobile, #theme-toggle-desktop').forEach(t => {
+                            updateThemeIcon(currentTheme, t);
+                        });
+                    });
+                }
+            });
+
+            // Add Sidebar Navigation Handler
             const hamburger = document.querySelector('.hamburger');
             if (hamburger) {
                 hamburger.addEventListener('click', function() {
                     this.classList.toggle('active');
                     document.querySelector('.header-actions').classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
                 });
             }
 
             // Close sidebar when clicking outside
             document.addEventListener('click', function(e) {
-                if (!e.target.closest('.header-actions') && !e.target.closest('.hamburger')) {
+                if (!e.target.closest('.header-actions') && 
+                    !e.target.closest('.hamburger') && 
+                    !e.target.closest('#theme-toggle-mobile')) {
                     document.querySelector('.hamburger')?.classList.remove('active');
                     document.querySelector('.header-actions')?.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                 }
             });
 
-            // Call adjustPageSpecificContent again after navbar is loaded
             adjustPageSpecificContent();
         })
         .catch(error => console.error('Error loading navbar:', error));

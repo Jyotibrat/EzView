@@ -1,10 +1,15 @@
 <div class="navbar">
     <a href="index.html"><img src="logo1.png" alt="img" class="logo"></a>
-    <button class="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <div class="mobile-controls">
+        <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
     <div class="header-actions">
         <nav class="nav-links">
             <a href="index.html">Home</a>
@@ -13,11 +18,9 @@
             <a href="file_upload.html" id="upload-link">Upload File</a>
             <a href="Html_Previewer.html">Html Previewer</a>
         </nav>
-        <!-- Toggle switch for theme -->
-        <label class="switch">
-            <input type="checkbox" id="theme-toggle">
-            <span class="slider round"></span>
-        </label>
+        <button id="theme-toggle-desktop" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-sun"></i>
+        </button>
     </div>
 </div>
 <script src="script.js" defer></script>

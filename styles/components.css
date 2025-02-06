@@ -263,50 +263,82 @@ nav a:hover {
   display: block;
 }
 
-/* Toggle Switch Styles */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
+/* Remove the old .switch, .slider, and related styles */
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
+/* Add Theme Toggle Button Styles */
+.theme-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  padding: 10px;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-left: auto; /* This will push it to the right in desktop */
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
+.theme-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
+.theme-toggle:hover::before {
+  opacity: 1;
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+.theme-light .theme-toggle .fa-sun {
+  color: #ffd700;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+  animation: spin-reverse 0.5s ease;
+}
+
+.theme-dark .theme-toggle .fa-moon {
+  color: #a0c4ff;
+  filter: drop-shadow(0 0 8px rgba(160, 196, 255, 0.4));
+  animation: spin 0.5s ease;
+}
+
+@keyframes spin {
+  from { transform: rotate(-45deg) scale(0.8); opacity: 0; }
+  to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(45deg) scale(0.8); opacity: 0; }
+  to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.15);
+    margin-left: 0; /* Reset the auto margin for mobile */
+  }
 }
 
 /* Button styles for light theme */
@@ -351,9 +383,11 @@ input:checked + .slider:before {
 /* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 3%;
-    gap: 15px;
+    gap: 0; /* Reset gap */
     position: relative;
   }
   .navbar h1 {
@@ -405,6 +439,7 @@ input:checked + .slider:before {
     max-width: 300px;
     margin: 0 auto;
     align-items: center;
+    padding-top: 60px; /* Add padding-top to accommodate theme toggle */
   }
   nav {
     width: 100%;
@@ -432,8 +467,10 @@ input:checked + .slider:before {
     align-items: center;
   }
   .logo {
-    width: 85px;  /* Increased from 72px */
-    height: 85px;
+    order: 1; /* Place logo first */
+    margin: 0 !important; /* Remove negative margin */
+    width: 65px; /* Smaller size for mobile */
+    height: 65px;
   }
   .controls {
     width: 100%;
@@ -451,9 +488,13 @@ input:checked + .slider:before {
   .hamburger {
     display: block;
     position: absolute; /* Changed from fixed to absolute */
-    right: 20px;
-    top: 20px;
+    right: 5px;
+    top: 25px;
     z-index: 1000;
+    margin-left: auto; /* Push to the right */
+    order: 3; /* Place hamburger after theme toggle */
+    margin-left: 0; /* Reset margin */
+    margin-right: 10px; /* Add some space from the right edge */
   }
   #theme-selector {
     width: 100%;
@@ -495,6 +536,20 @@ input:checked + .slider:before {
   body.menu-open {
     overflow: hidden;
   }
+  .theme-toggle {
+    position: static; /* Remove absolute positioning */
+    margin: 0 10px; /* Add some spacing */
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    order: 2; /* Control the order of flex items */
+    margin-right: 45px; /* Increased to accommodate hamburger position */
+  }
+  #theme-toggle-mobile {
+    display: flex;
+    margin-right: 0px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -530,6 +585,13 @@ input:checked + .slider:before {
     height: 35px;
     font-size: 0.9em;
   }
+  .hamburger {
+    right: 0px;
+    top: 25px;
+  }
+  .theme-toggle {
+    margin-right: 0px;
+  }
 }
 
 @media (max-width: 320px) {
@@ -548,5 +610,81 @@ input:checked + .slider:before {
     width: 30px;
     height: 30px;
     font-size: 0.8em;
+  }
+  .hamburger {
+    right: 2px;
+    top: 18px;
+  }
+  .theme-toggle {
+    margin-right: 35px;
+  }
+}
+
+/* Update desktop theme toggle styles */
+@media (min-width: 769px) {
+  .theme-toggle {
+    margin-left: 20px; /* Add space between nav links and toggle */
+    margin-right: 0;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Ensure mobile styles override desktop styles */
+@media (max-width: 768px) {
+  #theme-toggle {
+    position: static;
+    order: 2;
+  }
+  
+  /* Move theme toggle outside header-actions in mobile */
+  .navbar > #theme-toggle {
+    display: block;
+  }
+  
+  .header-actions > #theme-toggle {
+    display: none;
+  }
+}
+
+/* Add new mobile controls container */
+.mobile-controls {
+  display: none;
+}
+
+/* Update desktop/mobile visibility */
+@media (min-width: 769px) {
+  #theme-toggle-mobile, .mobile-controls {
+    display: none;
+  }
+  
+  #theme-toggle-desktop {
+    display: flex;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  #theme-toggle-desktop {
+    display: none;
+  }
+  
+  #theme-toggle-mobile {
+    display: flex;
+    margin-right: 0px;
+  }
+  
+  .hamburger {
+    position: static;
+    margin: 0;
   }
 }
