@@ -1,0 +1,126 @@
+.blog-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--blog-bigcard);
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px var(--blog-shadow);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.blog-post {
+    padding: 20px;
+}
+
+.blog-post h1 {
+    font-size: 2.5rem;
+    color: var(--blog-h1);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.blog-post h2 {
+    font-size: 1.8rem;
+    color: var(--blog-h2);
+    font-weight: 500;
+    margin-top: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.blog-post p {
+    font-size: 1.1rem;
+    color: var(--blog-p);
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.blog-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    margin-top: 2%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px var(--img-shadow);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog-image:hover {
+    transform: scale(1.05);
+}
+
+.blog-post ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.blog-post ul li {
+    font-size: 1.1rem;
+    color: var(--blog-h1);
+    padding: 10px;
+    background: var(--blog-box);
+    margin: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.blog-post ul li:hover {
+    background: var();
+}
+
+.blog-post ul li::before {
+    content: "✔";
+    color: #2a9d8f;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+}
+
+.navigation-buttons button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background: #2a9d8f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.navigation-buttons button:hover {
+    background: #21867a;
+}
+
+@media (max-width: 768px) {
+    .blog-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .blog-post h1 {
+        font-size: 2rem;
+    }
+
+    .blog-post h2 {
+        font-size: 1.5rem;
+    }
+
+    .blog-post p {
+        font-size: 1rem;
+    }
+
+    .navigation-buttons button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}

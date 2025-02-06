@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card1, .card2, .card3{
+    background-color: var(--blog-bigcard);
+    border: 1px solid #f8f9fa;
+    width: 80%;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 4%;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    display: flex;
+    gap: 50px;
+    padding: 30px;
+}
+
+h1{
+    margin-bottom: 3%;
+}
+
+.card1 img, .card2 img, .card3 img{
+    width: 30%;
+    height: 30%;
+    border-radius: 10px;
+}
+
+.card1 button, .card2 button, .card3 button{
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.card1 button:hover, .card2 button:hover, .card3 button:hover{
+    background-color: #0056b3;
+}
+
+.card3{
+    margin-bottom: 4%;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MarkView</title>
+    <link rel="stylesheet" href="styles/blog3.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+</head>
+<body class="about-page">
+    <div id="navbar-placeholder">Navbar will load here</div>
+
+    <main class="future-plans-container">
+        <div class="future-plans-content">
+            <img class="future-plans-img" src="https://img.freepik.com/free-vector/businessman-with-trophy-running-rising-arrow-business-mission-mission-statement-business-goals-philosophies-concept-white-background_335657-1701.jpg?w=996" alt="Future Plans Image">
+
+            <div class="future-plans-text">
+                <h1>Our Future Plans</h1>
+                <p>At MarkView, we are constantly evolving to bring the best Markdown experience to our users. Our journey doesn't stop here—our future roadmap includes exciting new features and enhancements aimed at making Markdown editing seamless and innovative.</p>
+
+                <h2>🔹 Upcoming Features</h2>
+                <ul>
+                    <li><strong>Real-time Collaboration:</strong> Work on documents with your team in real time.</li>
+                    <li><strong>Cloud Storage Support:</strong> Save and sync your work across multiple devices.</li>
+                    <li><strong>AI-powered Suggestions:</strong> Get smart recommendations for improving your Markdown content.</li>
+                    <li><strong>Export to Multiple Formats:</strong> Convert your documents to PDF, DOCX, or HTML.</li>
+                    <li><strong>Syntax Highlighting:</strong> Better readability for developers and technical writers.</li>
+                    <li><strong>Browser Extension:</strong> Edit and preview Markdown files directly from your browser.</li>
+                </ul>
+
+                <h2>🔹 Community Engagement</h2>
+                <p>We believe in the power of open source and community-driven development. In the future, we plan to introduce:</p>
+                <ul>
+                    <li>Open-source contribution guides for developers.</li>
+                    <li>Regular community meetups and workshops.</li>
+                    <li>Beta testing programs for early feature access.</li>
+                </ul>
+
+                <button onclick="location.href='blog.html'">Back to Home</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder">Footer will load here</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        let myBtn = document.getElementById("scrBtn");
+        let footer = document.getElementById("footer-placeholder");
+
+        window.onscroll = function () {
+            let footerRect = footer.getBoundingClientRect();
+            let windowHeight = window.innerHeight;
+            let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            let documentHeight = document.documentElement.scrollHeight;
+            
+            // Calculate when we're near the footer
+            let bottomOfWindow = scrollPosition + windowHeight;
+            let footerTop = documentHeight - footer.offsetHeight;
+            
+            // Show button only when we're not at the footer and scrolled past 20px
+            if (scrollPosition > 20 && bottomOfWindow < footerTop) {
+                myBtn.style.display = "block";
+            } else {
+                myBtn.style.display = "none";
+            }
+        };
+
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MarkView</title>
+    <link rel="stylesheet" href="styles/blog2.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+</head>
+<body class="about-page">
+    <div id="navbar-placeholder">Navbar will load here</div>
+
+    <main class="vision-container">
+        <div class="vision-content">
+            <img src="https://img.freepik.com/free-photo/magnifying-glass-enlarging-word_1134-334.jpg" 
+                 alt="Vision Image" class="vision-img">
+            <div class="vision-text">
+                <h1>Our Vision</h1>
+                <p>At MarkView, we envision a future where Markdown editing is seamless, accessible, and feature-rich. 
+                   Our goal is to transform the way users interact with Markdown by providing an intuitive, 
+                   user-friendly, and highly customizable platform.</p>
+
+                <h2>🔹 Making Markdown Accessible for Everyone</h2>
+                <p>We believe Markdown should not be limited to developers alone. Our vision includes making it accessible 
+                   to writers, students, researchers, and professionals by offering guided tutorials, AI-assisted formatting, 
+                   and pre-built templates to enhance productivity.</p>
+
+                <h2>🔹 Future-Ready Features</h2>
+                <ul>
+                    <li><b>🌐 Cross-Platform Integration:</b> MarkView will support multiple devices, ensuring seamless editing across mobile, tablet, and desktop.</li>
+                    <li><b>🔗 Cloud-Based Sync:</b> Save your Markdown files in the cloud and access them from anywhere.</li>
+                    <li><b>🤝 Real-Time Collaboration:</b> Work together with your team using live document sharing and editing.</li>
+                    <li><b>🎨 Customizable Themes:</b> Choose from a variety of themes to match your writing environment.</li>
+                </ul>
+
+                <h2>🔹 Enhancing Collaboration & Community</h2>
+                <p>Our long-term vision includes fostering a strong open-source community where users can contribute plugins, themes, 
+                   and enhancements. We aim to build a collaborative space where ideas flow freely and Markdown remains the standard for simplicity and efficiency.</p>
+
+                <div class="navigation-buttons">
+                    <button onclick="location.href='blog.html'">Back to Home</button>
+                    <button onclick="location.href='blog3.html'">Read about Our Future plans</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder">Footer will load here</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        let myBtn = document.getElementById("scrBtn");
+        let footer = document.getElementById("footer-placeholder");
+
+        window.onscroll = function () {
+            let footerRect = footer.getBoundingClientRect();
+            let windowHeight = window.innerHeight;
+            let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            let documentHeight = document.documentElement.scrollHeight;
+            
+            // Calculate when we're near the footer
+            let bottomOfWindow = scrollPosition + windowHeight;
+            let footerTop = documentHeight - footer.offsetHeight;
+            
+            // Show button only when we're not at the footer and scrolled past 20px
+            if (scrollPosition > 20 && bottomOfWindow < footerTop) {
+                myBtn.style.display = "block";
+            } else {
+                myBtn.style.display = "none";
+            }
+        };
+
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }
+    </script>
+</body>
+</html>

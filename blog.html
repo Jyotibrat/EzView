@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MarkView</title>
+    <link rel="stylesheet" href="styles/blog.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+</head>
+<body class="about-page">
+    <div id="navbar-placeholder">Navbar will load here</div>
+
+    <main class="blog-container">
+        <div class="card1">
+                <img src="https://img.freepik.com/free-vector/business-team-brainstorm-lightbulb-rocket-vision-statement-business-company-mission-business-planning-concept_335657-219.jpg?t=st=1738693532~exp=1738697132~hmac=d6b4fb829244baed4fdd1ba06bb98d4becff9cd5c79b361ec9059f3593ace4a2&w=996" alt="img">
+            <div class="info">
+                <h1>Mission</h1>
+                <p>Our mission is to provide a simple and user-friendly Markdown previewer that enables users to write and visualize their content effortlessly. We aim to foster an open-source environment where beginners can contribute and learn.By focusing on ease of use and accessibility, we hope to encourage more users to adopt Markdown for writing and documentation. MarkView strives to support developers, writers, and content creators with an intuitive interface that enhances productivity.</p>
+                <button onclick="location.href='blog1.html'">Read more</button>
+            </div>
+        </div> 
+
+        <div class="card2">
+                <img src="https://img.freepik.com/free-photo/magnifying-glass-enlarging-word_1134-334.jpg?t=st=1738693457~exp=1738697057~hmac=476593f0656201ad291df795ee144cf363a3f25e32dd27f97d65f3aafceb3411&w=996" alt="img">
+            <div class="info">
+                <h1>Vision</h1>
+                <p>We envision MarkView as the go-to platform for Markdown editing, with continuous improvements, customizable themes, and seamless integration with various platforms. Our goal is to make Markdown writing intuitive and accessible for everyone.As we progress, we aim to create a collaborative ecosystem where users can share their Markdown documents, get feedback, and work together on projects effortlessly. We see MarkView as a tool that not only simplifies Markdown editing but also enhances the overall writing experience.</p>
+                <button onclick="location.href='blog1.html'">Read more</button>
+            </div>
+        </div> 
+
+        <div class="card3">
+                <img src="https://img.freepik.com/free-vector/businessman-with-trophy-running-rising-arrow-business-mission-mission-statement-business-goals-philosophies-concept-white-background_335657-1701.jpg?t=st=1738693587~exp=1738697187~hmac=eab7eb7e17d91004f4f92bd8bc9b17bd0dbb7b36c994c9129894116c9a89299d&w=996" alt="img">
+            <div class="info">
+                <h1>Our Future plans</h1>
+                <p>We plan to introduce new features such as real-time collaboration, cloud storage support, and a mobile-friendly interface. Additionally, we aim to expand community engagement and encourage more contributions from developers worldwide.Some of our upcoming features include support for syntax highlighting, exporting documents to multiple formats (PDF, DOCX), and AI-powered suggestions for improving Markdown content. We also plan to develop a browser extension for quick previews and editing, ensuring that MarkView remains a powerful tool for Markdown users.</p>
+                <button onclick="location.href='blog3.html'">Read more</button>
+            </div>
+        </div> 
+        
+    </main>
+
+    <div id="footer-placeholder">Footer will load here</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        let myBtn = document.getElementById("scrBtn");
+        let footer = document.getElementById("footer-placeholder");
+
+        window.onscroll = function () {
+            let footerRect = footer.getBoundingClientRect();
+            let windowHeight = window.innerHeight;
+            let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            let documentHeight = document.documentElement.scrollHeight;
+            
+            // Calculate when we're near the footer
+            let bottomOfWindow = scrollPosition + windowHeight;
+            let footerTop = documentHeight - footer.offsetHeight;
+            
+            // Show button only when we're not at the footer and scrolled past 20px
+            if (scrollPosition > 20 && bottomOfWindow < footerTop) {
+                myBtn.style.display = "block";
+            } else {
+                myBtn.style.display = "none";
+            }
+        };
+
+        function topFunction() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }
+    </script>
+</body>
+</html>

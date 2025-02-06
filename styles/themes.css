@@ -31,6 +31,13 @@ body.theme-light {
   --button-color: #ffffff;
   --section-border: #e4e4e4;
   --highlight-color: #4f9cf5;
+  --blog-bigcard: white;
+  --blog-h1: black;
+  --blog-h2: #333;
+  --blog-p: #555;
+  --blog-box: white;
+  --blog-shadow: rgba(0, 0, 0, 0.1);
+  --img-shadow: rgba(0, 0, 0, 0.2);
 }
 
 /* Base Dark Theme */
@@ -49,6 +56,13 @@ body.theme-dark {
   --button-color: #6b6b6b;
   --section-border: #444444;
   --highlight-color: #0c315c;
+  --blog-bigcard: #00001c;
+  --blog-h1: white;
+  --blog-h2: white;
+  --blog-p: wheat;
+  --blog-box: #010035;
+  --blog-shadow: wheat;
+  --img-shadow: rgb(123, 121, 117);
 }
 
 /* Apply the variables to elements */
