@@ -1,26 +1,80 @@
-<div class="navbar">
-    <a href="index.html"><img src="logo1.png" alt="img" class="logo"></a>
-    <div class="mobile-controls">
-        <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle Theme">
-            <i class="fas fa-sun"></i>
-        </button>
-        <button class="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Navbar with Icons</title>
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Your existing CSS file -->
+    <link rel="stylesheet" href="styles/navbar.css" />
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">
+            <img src="logo1.png" alt="img" class="logo" />
+        </a>
+        <div class="mobile-controls">
+            <button
+              id="theme-toggle-mobile"
+              class="theme-toggle"
+              aria-label="Toggle Theme"
+            >
+                <i class="fas fa-sun"></i>
+            </button>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="header-actions">
+            <nav class="nav-links">
+                <!-- Icons added before text -->
+                <a href="index.html">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <div class="dropdown">
+                    <button class="dropdown-toggle">
+                        <i class="fas fa-file-alt"></i> Markdown
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="markdown_live_preview.html">Live Preview</a>
+                        <a href="file_upload.html">Upload</a>
+                    </div>
+                </div>
+                <a href="html_previewer.html">
+                    <i class="fab fa-html5"></i> HTML
+                </a>
+                <div class="dropdown">
+                    <button class="dropdown-toggle">
+                        <i class="fas fa-code"></i> Online IDE
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="ide_python.html">Python</a>
+                        <a href="ide_java.html">Java</a>
+                        <a href="ide_cpp.html">C++</a>
+                    </div>
+                </div>
+                <a href="blog.html">
+                    <i class="fas fa-blog"></i> Blog
+                </a>
+                <a href="about.html">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+            </nav>
+            <button
+              id="theme-toggle-desktop"
+              class="theme-toggle"
+              aria-label="Toggle Theme"
+            >
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
     </div>
-    <div class="header-actions">
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="file_upload.html" id="upload-link">Upload File</a>
-            <a href="Html_Previewer.html">Html Previewer</a>
-        </nav>
-        <button id="theme-toggle-desktop" class="theme-toggle" aria-label="Toggle Theme">
-            <i class="fas fa-sun"></i>
-        </button>
-    </div>
-</div>
-<script src="script.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

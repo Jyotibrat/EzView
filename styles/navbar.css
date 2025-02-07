@@ -1,0 +1,322 @@
+/* Navbar Styles */
+.navbar {
+    background-color: var(--header-background);
+    color: var(--header-color);
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    color: var(--text-color);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+nav a, .dropdown-toggle {
+    color: var(--nav-text);
+    text-decoration: none;
+    margin: 5px;
+    font-size: 17px;
+    padding: 15px 25px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    background: none;
+    cursor: pointer;
+}
+
+/* Hover highlight */
+nav a:hover, .dropdown-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+/* Remove underlines */
+nav a::after, .dropdown-toggle::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--text-color);
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after, .dropdown-toggle:hover::after {
+    width: 100%;
+}
+
+/* Add Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: var(--header-background);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-menu a {
+    color: var(--nav-text);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 3%;
+      gap: 0;
+      position: relative;
+    }
+    .navbar h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .header-actions {
+      width: 100%;
+      flex-direction: column;
+      gap: 15px;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      height: 100vh;
+      background-color: var(--header-background);
+      padding: 60px 20px 20px;
+      transition: right 0.3s ease;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .header-actions.active {
+      right: 0;
+    }
+    .header-actions::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    .header-actions.active::before {
+      opacity: 1;
+      visibility: visible;
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      align-items: center;
+      padding-top: 60px;
+    }
+    nav, .dropdown {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      padding: 20px 0;
+    }
+    nav a, .dropdown-toggle {
+      margin: 0;
+      text-align: center;
+      padding: 12px 15px;
+      font-size: 16px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px; /* spacing between icon and text */
+    }
+    .logo {
+      order: 1;
+      margin: 0 !important;
+      width: 65px;
+      height: 65px;
+    }
+    .hamburger {
+      display: block;
+      position: absolute;
+      right: 5px;
+      top: 25px;
+      z-index: 1000;
+      margin-left: auto;
+      order: 3;
+      margin-left: 0;
+      margin-right: 10px;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+      padding: 10px 2%;
+    }
+    .navbar h1 {
+      font-size: 18px;
+    }
+    nav a, .dropdown-toggle {
+      font-size: 14px;
+      padding: 10px 15px;
+      margin: 2px 0;
+    }
+    .logo {
+      width: 75px;
+      height: 75px;
+    }
+    .hamburger {
+      right: 0px;
+      top: 25px;
+    }
+}
+
+@media (max-width: 320px) {
+    .navbar {
+      padding: 8px 1%;
+    }
+    .logo {
+      width: 65px;
+      height: 65px;
+    }
+    nav a, .dropdown-toggle {
+      font-size: 13px;
+      padding: 8px 12px;
+    }
+    .hamburger {
+      right: 2px;
+      top: 18px;
+    }
+}
+
+/* Desktop theme toggle spacing */
+@media (min-width: 769px) {
+    .theme-toggle {
+      margin-left: 20px;
+      margin-right: 0;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+    }
+}
+
+/* Override mobile styles for theme toggle where needed */
+@media (max-width: 768px) {
+    #theme-toggle {
+      position: static;
+      order: 2;
+    }
+    .navbar > #theme-toggle {
+      display: block;
+    }
+    .header-actions > #theme-toggle {
+      display: none;
+    }
+}
+
+/* Mobile controls container */
+.mobile-controls {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    #theme-toggle-mobile, .mobile-controls {
+      display: none;
+    }
+    #theme-toggle-desktop {
+      display: flex;
+      margin-left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    #theme-toggle-desktop {
+      display: none;
+    }
+    #theme-toggle-mobile {
+      display: flex;
+      margin-right: 0px;
+    }
+    .hamburger {
+      position: static;
+      margin: 0;
+    }
+}
