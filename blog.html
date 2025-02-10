@@ -12,6 +12,27 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <style>
+    #scrBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--button-background);
+    color: var(--button-color);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    transition: all 0.3s ease;
+}
+
+    #scrBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+    </style>
 </head>
 <body class="about-page">
     <div id="navbar-placeholder">Navbar will load here</div>
@@ -25,6 +46,10 @@
                 <button onclick="location.href='blog1.html'">Read more</button>
             </div>
         </div> 
+
+        <button onclick="topFunction()" id="scrBtn" title="Go to top">
+            <i class="fas fa-arrow-up fa-lg"></i>
+        </button>
 
         <div class="card2">
                 <img src="https://img.freepik.com/free-photo/magnifying-glass-enlarging-word_1134-334.jpg?t=st=1738693457~exp=1738697057~hmac=476593f0656201ad291df795ee144cf363a3f25e32dd27f97d65f3aafceb3411&w=996" alt="img">
