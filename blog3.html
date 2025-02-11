@@ -12,6 +12,29 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <style>
+        #scrBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            padding: 12px 16px;
+            border-radius: 50px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        #scrBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body class="about-page">
     <div id="navbar-placeholder">Navbar will load here</div>
@@ -49,6 +72,8 @@
 
     <div id="footer-placeholder">Footer will load here</div>
 
+    <button id="scrBtn" onclick="topFunction()">↑ Top</button>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js" defer></script>
     <script>
@@ -56,17 +81,12 @@
         let footer = document.getElementById("footer-placeholder");
 
         window.onscroll = function () {
-            let footerRect = footer.getBoundingClientRect();
-            let windowHeight = window.innerHeight;
             let scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            let windowHeight = window.innerHeight;
             let documentHeight = document.documentElement.scrollHeight;
-            
-            // Calculate when we're near the footer
-            let bottomOfWindow = scrollPosition + windowHeight;
-            let footerTop = documentHeight - footer.offsetHeight;
-            
-            // Show button only when we're not at the footer and scrolled past 20px
-            if (scrollPosition > 20 && bottomOfWindow < footerTop) {
+
+            // Show the button after scrolling 20px from the top
+            if (scrollPosition > 20) {
                 myBtn.style.display = "block";
             } else {
                 myBtn.style.display = "none";
