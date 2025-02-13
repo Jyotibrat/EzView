@@ -38,6 +38,12 @@ body.theme-light {
   --blog-box: white;
   --blog-shadow: rgba(0, 0, 0, 0.1);
   --img-shadow: rgba(0, 0, 0, 0.2);
+  --heading-hr-color: rgb(8, 56, 8);
+  --h2-border-color: #c2cacc;
+  --main-bg: #e7e7e7aa;
+  --section-bg: #e6e6e68a;
+  --main-border: #27859dd4;
+  --section-border: #27859dd4;
 }
 
 /* Base Dark Theme */
@@ -63,6 +69,12 @@ body.theme-dark {
   --blog-box: #010035;
   --blog-shadow: wheat;
   --img-shadow: rgb(123, 121, 117);
+  --heading-hr-color: #31ffe7;
+  --h2-border-color: rgb(190, 190, 157);
+  --main-bg: #141b28;
+  --section-bg: #00001c;
+  --main-border: rgb(136, 136, 136);
+  --section-border: rgb(145, 142, 122);
 }
 
 /* Apply the variables to elements */

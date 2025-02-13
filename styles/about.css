@@ -14,10 +14,10 @@ main {
     padding: 20px;
     max-width: 1000px;
     margin: 20px auto;
-    background: var(--input-sec-bg);
+    background: var(--main-bg);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
-    border: 1px solid var(--header-background);
+    border: 2px solid var(--main-border);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
@@ -35,16 +35,16 @@ h2 {
     color: var(--text-color);
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid var(--button-background);
+    border-bottom: 2px solid var(--h2-border-color);
     padding-bottom: 0.5rem;
 }
 
 section {
     margin-bottom: 30px;
     padding: 20px 25px;
-    background: var(--background-color);
+    background: var(--section-bg);
     border-radius: 10px;
-    border: 1px solid var(--header-background);
+    border: 2px solid var(--section-border);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
@@ -56,7 +56,7 @@ p, ul li {
 }
 
 strong {
-    color: var(--button-background);
+    color: var(--heading-hr-color);
     font-weight: 600;
 }
 
@@ -71,7 +71,7 @@ ul li {
 
 ul li::before {
     content: "•";
-    color: var(--button-background);
+    color: var(--heading-hr-color);
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -79,7 +79,7 @@ ul li::before {
 }
 
 a {
-    color: var(--button-background);
+    color: var(--heading-hr-color);
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
