@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Online IDE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./cpp_ide.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <button id="toggle-sidebar" class="header-icon"><i class="fas fa-folder-open"></i></button>
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fas fa-file-alt"></i> File</button>
+                <div class="dropdown-content">
+                    <input type="file" id="file-input" multiple hidden>
+                    <a href="#" id="add-file">Add File</a>
+                    <a href="#" id="create-cpp-class">Create C++ Class</a>
+                    <a href="#" id="create-cpp-header">Create Header File</a>
+                    <a href="#" id="create-file">Create File</a>
+                </div>
+            </div>
+            <button id="toggle-terminal"><i class="fas fa-terminal"></i> Terminal</button>
+            <button id="compile-button"><i class="fas fa-hammer"></i> Compile</button>
+            <button id="run-button"><i class="fas fa-play"></i> Run</button>
+        </div>
+        <div class="header-right">
+            <a href="../index.html" class="header-icon"><i class="fas fa-home"></i></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar" id="file-sidebar">
+            <div class="sidebar-header">
+                <span>Files</span>
+                <button id="close-sidebar"><i class="fas fa-times"></i></button>
+            </div>
+            <ul id="file-list"></ul>
+        </div>
+        <div class="editor-terminal-container" id="editor-terminal-container">
+            <div class="editor-container">
+                <textarea id="code-editor">
+#include <iostream>
+
+int main() {
+    int first = 10;
+    int second = 20;
+
+    // add two numbers
+    int sum = first + second;
+    std::cout << first << " + " << second << " = " << sum << std::endl;
+    return 0;
+}</textarea>
+            </div>
+            <div class="resizer" id="resizer"></div>
+            <div class="output-container" id="terminal">
+                <div class="output-header">
+                    <span>Terminal</span>
+                    <button id="close-terminal">X</button>
+                </div>
+                <pre id="output"></pre>
+            </div>
+        </div>
+    </div>
+    <script src="config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+    <script src="../cpp_ide_script.js"></script>
+</body>
+</html>
