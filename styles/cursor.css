@@ -1,0 +1,12 @@
+.cursor{
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 0.1s linear;
+    z-index: 1000;
+    mix-blend-mode: difference;
+}
