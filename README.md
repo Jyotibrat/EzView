@@ -36,7 +36,7 @@ Visit the live version of the project [here](https://jyotibrat.github.io/MarkVie
 
 ## **Project Structure**  
 ```plaintext
-MarkView
+EzView
 ├── src
 │   ├── assets/favicon
 │   │   ├── apple-touch-icon.png
